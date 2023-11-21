@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 14:19:58 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/21 14:25:56 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ $(NAME): $(OBJ_DIR) $(OBJS)
 $(OBJ_DIR):
 	@mkdir $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER) Makefile
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
 	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -c $< -o $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR_GNL)%.c $(SRC_DIR_GNL)get_next_line.h Makefile

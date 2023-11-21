@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 11:28:35 by laugarci         ###   ########.fr       */
+/*   Created: 2022/08/29 13:03:39 by laugarci          #+#    #+#             */
+/*   Updated: 2022/10/18 14:31:25 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdio.h>
-
-typedef t_cub
+int	ft_atoi(const char *str)
 {
-	//PATH TO IMG
-	char *n;
-	char *s;
-	char *e;
-	char *w;
-	//COLORS
-	int *f;
-	int *c;
-	//MAP
-	char **map;
-}
+	int	i;
+	int	j;
+	int	flag;
 
-# endif
+	i = 0;
+	j = 0;
+	flag = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	{
+		i++;
+	}
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			flag = flag * -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		j = j * 10;
+		j = j + str[i] - 48;
+		i++;
+	}
+	return (j * flag);
+}

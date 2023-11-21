@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 17:36:19 by laugarci         ###   ########.fr       */
+/*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
+/*   Updated: 2023/11/21 15:38:07 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int ac, char **av)
+void	init_vars(t_cub *cub)
 {
-	t_cub cub;
+	cub->n = NULL;
+	cub->s = NULL;
+	cub->e = NULL;
+	cub->w = NULL;
+	cub->f = NULL;
+	cub->c = NULL;
+	cub->map = NULL;
+	cub->rows = 0;
+	cub->player = NULL;
+}
 
-	if (ac == 2)
+void	free_map(t_cub *cub)
+{
+	int i;
+
+	i = 0;
+	while (i < cub->rows)
 	{
-		check_arg(av);
-		init_vars(&cub);
-		open_map(av[1], &cub);
-		parse_file(&cub);
-	//	check_map(&cub);
-	//	free_map(&cub);
+		free(cub->map[i]);
+		i++;
 	}
-	else
-		printf("Invalid arguments\n");
-	return (0);
+	free(cub->map);
 }

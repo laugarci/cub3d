@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   copy_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 17:36:19 by laugarci         ###   ########.fr       */
+/*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
+/*   Updated: 2023/11/21 17:30:54 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "cub3d.h"
 
-int main(int ac, char **av)
+/*void	copy_map(t_cub *cub)
 {
-	t_cub cub;
+	int i;
 
-	if (ac == 2)
+	i = 0;
+	while (42)
 	{
-		check_arg(av);
-		init_vars(&cub);
-		open_map(av[1], &cub);
-		parse_file(&cub);
-	//	check_map(&cub);
-	//	free_map(&cub);
+		cub->map[i] = get_next_line(fd);
+		if (cub->map[i] == NULL)
+			break ;
+		else if (!ft_strncmp(cub->map[i], "\n", 1))
+			free(cub->map[i]);
+		else
+			i++;
 	}
-	else
-		printf("Invalid arguments\n");
-	return (0);
-}
+}*/

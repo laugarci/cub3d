@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 14:25:56 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/21 17:36:41 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ SRC_DIR = src/
 SRC_DIR_GNL = get_next_line/
 
 SRC_FILES = cub3d.c \
-			check_arg.c
+			open_map.c \
+			parser_utils.c \
+			check_map.c \
+			parse_file.c \
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

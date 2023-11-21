@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 11:55:50 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 11:58:09 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/21 12:29:16 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ HEADER = cub3d.h
 
 SRC_DIR = src/
 SRC_FILES = cub3d.c \
-			check_args.c \
-			get_next_line/get_next_line.c \
-			get_next_line/get_next_line_utils.c
+			check_arg.c \
+#			get_next_line/get_next_line.c \
+#			get_next_line/get_next_line_utils.c
 
 OBJ_DIR = objs/
 OBJ_FILES = $(SRC_FILES:.c=.o)
@@ -39,7 +39,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -MMD
 RM = rm -f
 
-INCLUDE = -I include/ -I libft/include/ -I inc/
+INCLUDE = -I libft/ -I inc/
 
 all: m_libft subsystems $(NAME)
 
@@ -47,16 +47,15 @@ m_libft:
 	@make -C libft/
 
 subsystems:
-	make -C $(MLX_PATH) all
+	@make -C $(MLX_PATH) all
 
-$(NAME): $(OBJ_DIR) $(OBJS)
-	$(CC) -o $(NAME) $(MLX_FLAGS) $(MLX_LIB) $(CFLAGS) $(OBJS) -L libft/ -lft
-
+$(NAME):	$(OBJ_DIR) $(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -L libft/ -lft -o $@
 $(OBJ_DIR):
 	@mkdir $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(LIBFT) Makefile
-	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -Iinclude/ -c $< -o $@
+	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(DEPS)

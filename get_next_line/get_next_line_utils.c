@@ -6,14 +6,14 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:18:51 by laugarci          #+#    #+#             */
-/*   Updated: 2023/02/02 11:13:54 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:22:47 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr_gnl(char *s, int c)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *str, char *buf)
+char	*ft_strjoin_gnl(char *str, char *buf)
 {
 	char	*s;
 	size_t	i;
@@ -42,7 +42,7 @@ char	*ft_strjoin(char *str, char *buf)
 			return (ft_free(&str));
 		str[0] = '\0';
 	}
-	s = malloc(sizeof(char) * (ft_strlen(str) + ft_strlen(buf) + 1));
+	s = malloc(sizeof(char) * (ft_strlen_gnl(str) + ft_strlen_gnl(buf) + 1));
 	if (!s)
 		return (ft_free(&str));
 	i = -1;
@@ -95,7 +95,7 @@ char	*ft_new_line(char *str)
 		i++;
 	if (!str[i])
 		return (ft_free(&str));
-	s = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	s = (char *)malloc(sizeof(char) * (ft_strlen_gnl(str) + 1));
 	if (!s)
 		return (ft_free(&str));
 	i++;

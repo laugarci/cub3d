@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:19:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 09:55:56 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/21 09:58:16 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MLX_LIB = $(MLX_PATH)libmlx.a
 
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-CFILES = cub3d.c
+CFILES = cub3d.c \
 		 get_next_line/get_next_line.c \
 		 get_next_line/get_next_line_utils.c
 

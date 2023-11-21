@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 11:58:50 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:29:25 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct s_cub
 {
@@ -29,5 +30,7 @@ typedef struct s_cub
 	//MAP
 	char **map;
 }	t_cub;
+
+void	check_arg(char **av);
 
 # endif

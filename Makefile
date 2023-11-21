@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/21 11:55:50 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 12:29:16 by laugarci         ###   ########.fr        #
+#    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
+#    Updated: 2023/11/21 14:19:58 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,22 +15,23 @@ NAME = cub3d
 HEADER = cub3d.h
 
 SRC_DIR = src/
+SRC_DIR_GNL = get_next_line/
+
 SRC_FILES = cub3d.c \
-			check_arg.c \
-#			get_next_line/get_next_line.c \
-#			get_next_line/get_next_line_utils.c
+			check_arg.c
+
+SRC_FILES_GNL = get_next_line.c \
+				get_next_line_utils.c
 
 OBJ_DIR = objs/
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:.c=.o) $(SRC_FILES_GNL:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-DEP_FILES = $(SRC_FILES:.c=.d)
+DEP_FILES = $(SRC_FILES:.c=.d) $(SRC_FILES_GNL:.c=.d)
 DEPS = $(addprefix $(OBJ_DIR), $(DEP_FILES))
 
 MLX_PATH = mlx/
-
 MLX_LIB = $(MLX_PATH)libmlx.a
-
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 LIBFT = libft/libft.a
@@ -39,7 +40,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -MMD
 RM = rm -f
 
-INCLUDE = -I libft/ -I inc/
+INCLUDE = -I libft/ -I get_next_line/ -I inc/
 
 all: m_libft subsystems $(NAME)
 
@@ -49,13 +50,17 @@ m_libft:
 subsystems:
 	@make -C $(MLX_PATH) all
 
-$(NAME):	$(OBJ_DIR) $(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -L libft/ -lft -o $@
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -L libft/ -lft -o $@ $(MLX_FLAGS)
+
 $(OBJ_DIR):
 	@mkdir $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(LIBFT) Makefile
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -c $< -o $@
+
+$(OBJ_DIR)%.o: $(SRC_DIR_GNL)%.c $(SRC_DIR_GNL)get_next_line.h Makefile
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS) $(DEPS)

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 17:37:03 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:56:45 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void	open_map(char *path, t_cub *cub);
 void	free_map(t_cub *cub);
 void	check_map(t_cub *cub);
 void	parse_file(t_cub *cub);
+char	*find_path_to_img(char *map);
+char	**copy_map(char *map, t_cub *cub);
 
 # endif

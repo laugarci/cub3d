@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 17:32:17 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:28:57 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	open_map(char *path, t_cub *cub)
 		else
 			i++;
 	}
+	cub->rows = i;
 	close(fd);
 }
 

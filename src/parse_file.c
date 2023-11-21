@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 19:17:15 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:09:19 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ int		*find_color(char *map)
 {
 	int *color;
 	int i;
-	int j;
 	int c;
 	int num;
 
 	color = malloc(sizeof(int) * 3);
 	i = 0;
-	j = 0;
 	num = 0;
 	while (map[i])
 	{
@@ -78,10 +76,20 @@ void	parse_file(t_cub *cub)
 		j = 0;
 		while (cub->all[i][j])
 		{
-			if (cub->all[i][j] == 'F' && !ft_strncmp(cub->all[i], "F ", 2))
+			if (cub->all[i][j] == 'F' && !ft_strncmp(&cub->all[i][j], "F ", 2))
 				cub->f = find_color(&cub->all[i][j]);
-			if (cub->all[i][j] == 'C' && !ft_strncmp(cub->all[i], "C ", 2))
+			if (cub->all[i][j] == 'C' && !ft_strncmp(&cub->all[i][j], "C ", 2))
 				cub->c = find_color(&cub->all[i][j]);
+			if (!ft_strncmp(&cub->all[i][j], "NO ", 3))
+				cub->n = find_path_to_img(&cub->all[i][j]);
+			if (!ft_strncmp(&cub->all[i][j], "SO ", 3))
+				cub->s = find_path_to_img(&cub->all[i][j]);
+			if (!ft_strncmp(&cub->all[i][j], "WE ", 3))
+				cub->w = find_path_to_img(&cub->all[i][j]);
+			if (!ft_strncmp(&cub->all[i][j], "EA ", 3))
+				cub->e = find_path_to_img(&cub->all[i][j]);
+			if (!ft_strncmp(&cub->all[i][j], "111", 3))
+				cub->map = copy_map(cub->all[i], cub);
 			j++;
 		}
 		i++;

@@ -6,11 +6,24 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 17:36:19 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:08:28 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	print_info(t_cub *cub)
+{
+	printf("PATH NO: %s\nPATH SO: %s\nPATH WE: %s\nPATH EA: %s\n", cub->n, cub->s, cub->w, cub->e);
+	printf("COLOR F: %d %d %d\nCOLOR C: %d %d %d\n", cub->f[0], cub->f[1], cub->f[2], cub->c[0], cub->c[1], cub->c[2]);
+	
+	int i = 0;
+	while (i < cub->rows)
+	{
+		printf("%s\n", cub->map[i]);
+		i++;
+	}
+}
 
 int main(int ac, char **av)
 {
@@ -22,6 +35,7 @@ int main(int ac, char **av)
 		init_vars(&cub);
 		open_map(av[1], &cub);
 		parse_file(&cub);
+		print_info(&cub);
 	//	check_map(&cub);
 	//	free_map(&cub);
 	}

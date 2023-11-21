@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 21:09:17 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:26:09 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,18 @@ char	**allocate_matrix(char *map, int rows)
 	i = 0;
 	j = 0;
 	c = 0;
-	while(map[i])
+	while(j < rows)
 	{
 		if (map[i] == '\n')
-			i++;		
-		c = i - c;
-	//	matrix[j] = malloc(sizeof(char) * c + 1);
+		{
+			i++;
+			c = i - c;		
+			matrix[j] = malloc(sizeof(char) * (c + 1));
+			j++;
+		}
 		i++;
 	}
 	return (matrix);
-	map = NULL;
 }
 
 char **copy_map(char *map, t_cub *cub)
@@ -50,8 +52,7 @@ char **copy_map(char *map, t_cub *cub)
 	matrix = allocate_matrix(map, cub->rows);
 	i = 0;
 	j = 0;
-	c = 0;
-/*	while(map[i])
+	while(j < cub->rows)
 	{
 		c = 0;
 		while(map[i] != '\n' && map[i])
@@ -67,8 +68,9 @@ char **copy_map(char *map, t_cub *cub)
 			i++;
 		}
 		matrix[j][c] = '\0';
+		c++;
 		j++;
-	}*/
+	}
 	return (matrix);
 }
 

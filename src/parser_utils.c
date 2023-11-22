@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 14:38:09 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:58:25 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ void	init_vars(t_cub *cub)
 	cub->s = NULL;
 	cub->e = NULL;
 	cub->w = NULL;
-	cub->f = NULL;
-	cub->c = NULL;
 	cub->map = NULL;
 	cub->rows = 0;
-	cub->player = NULL;
+	cub->f[0] = -1;
+	cub->f[1] = -1;
+	cub->f[2] = -1;
+	cub->c[0] = -1;
+	cub->c[1] = -1;
+	cub->c[2] = -1;
+	cub->player[0] = -1;
+	cub->player[1] = -1;
 }
 
 void	free_matrix(char **matrix, int len)
@@ -49,10 +54,6 @@ void	free_all(t_cub *cub)
 	i = 0;
 	if (cub->all != NULL)
 		free_matrix(cub->all, cub->total_len);
-	if (cub->f != NULL)
-		free(cub->f);
-	if (cub->c != NULL)
-		free(cub->c);
 	if (cub->n != NULL)
 		free(cub->n);
 	if (cub->s != NULL)
@@ -61,8 +62,6 @@ void	free_all(t_cub *cub)
 		free(cub->w);
 	if (cub->e != NULL)
 		free(cub->e);
-	if (cub->player != NULL)
-		free(cub->player);
 	if (cub->map != NULL)
 		free_matrix(cub->map, cub->rows);
 }

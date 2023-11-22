@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 15:08:30 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:19:48 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	print_info(t_cub *cub)
 {
 	printf("PATH NO: %s\nPATH SO: %s\nPATH WE: %s\nPATH EA: %s\n", cub->n, cub->s, cub->w, cub->e);
 	printf("COLOR F: %d %d %d\nCOLOR C: %d %d %d\n", cub->f[0], cub->f[1], cub->f[2], cub->c[0], cub->c[1], cub->c[2]);
+	printf("Player position: row: %d col: %d\n", cub->player[0], cub->player[1]);
 	
 	int i = 0;
 	while (i < (cub->rows))
@@ -35,8 +36,9 @@ int	main(int ac, char **av)
 		init_vars(&cub);
 		open_map(av[1], &cub);
 		parse_file(&cub);
-		print_info(&cub);
+		check_info(&cub);
 		check_map(&cub);
+		print_info(&cub);
 		free_all(&cub);
 	}
 	else

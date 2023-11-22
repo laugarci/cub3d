@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 13:58:38 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:16:04 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,19 @@ char	*copy_path(char *map, int del)
 	return (tmp);
 }
 
-char	*find_path_to_img(char *map)
+void find_path_to_img(char *map, char **path)
 {
 	int		i;
 	int		c;
-	char	*path;
 
 	i = 0;
 	c = 0;
 	map += 3;
-	path = NULL;
+	if (*path != NULL)
+	{
+		printf("repes\n");
+		exit(-1);
+	}
 	while (map[i])
 	{
 		if (map[i] == '\n')
@@ -57,14 +60,14 @@ char	*find_path_to_img(char *map)
 				c++;
 				i++;
 			}
-			path = copy_path(&map[i - c], c);
+			*path = copy_path(&map[i - c], c);
 			break ;
 		}
 	}
-	if (path == NULL)
+	if (*path == NULL)
 	{
 		printf("Path to image not found, please, check your file\n");
 		exit(-1);
 	}
-	return (path);
+//	return (path);
 }

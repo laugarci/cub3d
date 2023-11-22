@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/22 14:21:07 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/22 17:03:10 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRC_FILES = cub3d.c \
 			parse_file.c \
 			find_img_path.c \
 			copy_map.c \
+			map_utils.c \
+			check_info.c \
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 15:08:57 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:19:53 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ int	find_number(char *map, int del)
 	return (num);
 }
 
-int	*find_color(char *map)
+void	find_color(char *map, int color[3])
 {
-	int	*color;
 	int	i;
 	int	c;
 	int	num;
 
-	color = malloc(sizeof(int) * 3);
 	i = 0;
 	num = 0;
 	while (map[i])
@@ -62,50 +60,17 @@ int	*find_color(char *map)
 		}
 		i++;
 	}
-	return (color);
 }
 
-int	check_nums(t_cub *cub)
+int	all_found(t_cub *cub)
 {
-	int	i;
-
-	i = 0;
-	while (i < 3)
-	{
-		if (cub->f[i] < 0 || cub->f[i] > 255)
-			return (1);
-		i++;
-	}
-	i = 0;
-	while (i < 3)
-	{
-		if (cub->c[i] < 0 || cub->c[i] > 255)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void	check_info(t_cub *cub)
-{
-	if (cub->w == NULL || cub->e == NULL || cub->n == NULL || cub->s == NULL)
-	{
-		printf("Error: map texture information is missing.\n");
-		free_all(cub);
-		exit(-1);
-	}
-	else if (cub->f == NULL || cub->c == NULL || check_nums(cub))
-	{
-		printf("Error: Floor and/or sky colors are missing or invalid.\n");
-		free_all(cub);
-		exit(-1);
-	}
-	else if (cub->map == NULL)
-	{
-		printf("Error: map not found.\n");
-		free_all(cub);
-		exit(-1);
-	}
+	if (cub->n == NULL || cub->s == NULL|| cub->w == NULL || cub->e == NULL)
+		return (0);
+	else if (cub->f[0] == -1 || cub->f[1] == -1 || cub->f[2] == -1)
+		return (0);
+	else if (cub->c[0] == -1 || cub->f[1] == -1 || cub->f[2] == -2)
+		return (0);
+	return (1);
 }
 
 void	parse_file(t_cub *cub)
@@ -115,28 +80,28 @@ void	parse_file(t_cub *cub)
 
 	i = 0;
 	j = 0;
-	while (i < cub->rows)
+	while (i < cub->total_len)
 	{
 		j = 0;
 		while (cub->all[i][j])
 		{
 			if (cub->all[i][j] == 'F' && !ft_strncmp(&cub->all[i][j], "F ", 2))
-				cub->f = find_color(&cub->all[i][j]);
+				find_color(&cub->all[i][j], cub->f);
 			if (cub->all[i][j] == 'C' && !ft_strncmp(&cub->all[i][j], "C ", 2))
-				cub->c = find_color(&cub->all[i][j]);
+				find_color(&cub->all[i][j], cub->c);
 			if (!ft_strncmp(&cub->all[i][j], "NO ", 3))
-				cub->n = find_path_to_img(&cub->all[i][j]);
+				find_path_to_img(&cub->all[i][j], &cub->n);
 			if (!ft_strncmp(&cub->all[i][j], "SO ", 3))
-				cub->s = find_path_to_img(&cub->all[i][j]);
+				find_path_to_img(&cub->all[i][j], &cub->s);
 			if (!ft_strncmp(&cub->all[i][j], "WE ", 3))
-				cub->w = find_path_to_img(&cub->all[i][j]);
+				find_path_to_img(&cub->all[i][j], &cub->w);
 			if (!ft_strncmp(&cub->all[i][j], "EA ", 3))
-				cub->e = find_path_to_img(&cub->all[i][j]);
-			if (!ft_strncmp(&cub->all[i][j], "111", 3) && cub->map == NULL)
+				find_path_to_img(&cub->all[i][j], &cub->e);
+			if (!ft_strncmp(&cub->all[i][j], "11", 2) && cub->map == NULL
+					&& all_found(cub))
 				cub->map = copy_map(i, cub);
 			j++;
 		}
 		i++;
 	}
-	check_info(cub);
 }

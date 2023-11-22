@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 15:00:29 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 17:10:14 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ typedef struct s_cub
 	char	*s;
 	char	*e;
 	char	*w;
-	int		*f;
-	int		*c;
+	int		f[3];
+	int		c[3];
 	char	**map;
 	char	**all;
-	int		*player;
+	int		player[2];
 	int		rows;
 	int		total_len;
 }			t_cub;
@@ -40,9 +40,13 @@ void	open_map(char *path, t_cub *cub);
 void	free_map(t_cub *cub);
 void	check_map(t_cub *cub);
 void	parse_file(t_cub *cub);
-char	*find_path_to_img(char *map);
+void	find_path_to_img(char *map, char **path);
 char	**copy_map(int init, t_cub *cub);
 void	free_all(t_cub *cub);
 void	free_matrix(char **matrix, int len);
+void	invalid_map(t_cub *cub);
+int		check_one(char *str);
+int		check_char(char c);
+void	check_info(t_cub *cub);
 
 #endif

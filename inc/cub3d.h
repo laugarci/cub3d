@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 10:56:03 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:56:16 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_cub
 	int *player;
 	//ROWS
 	int rows;
+	int	total_len;
 }	t_cub;
 
 void	check_arg(char **av);
@@ -46,5 +47,7 @@ void	check_map(t_cub *cub);
 void	parse_file(t_cub *cub);
 char	*find_path_to_img(char *map);
 char	**copy_map(int init, t_cub *cub);
+void	free_all(t_cub *cub);
+void	free_file(t_cub *cub);
 
 # endif

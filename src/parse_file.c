@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 11:08:23 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:33:54 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		find_number(char *map, int del)
 	free(tmp);
 	return (num);
 }
+
 int		*find_color(char *map)
 {
 	int *color;
@@ -63,6 +64,48 @@ int		*find_color(char *map)
 	return (color);
 }
 
+int		check_nums(t_cub *cub)
+{
+	int i;
+
+	i = 0;
+	while(i < 3)
+	{
+		if (cub->f[i] < 0 || cub->f[i] > 255)
+			return (1);
+		i++;
+	}
+	i = 0;
+	while(i < 3)
+	{
+		if (cub->c[i] < 0 || cub->c[i] > 255)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+void	check_info(t_cub *cub)
+{
+	if (cub->w == NULL || cub->e == NULL || cub->n == NULL || cub->s == NULL)
+	{
+		printf("Error: map texture information is missing.\n");
+		free_all(cub);
+		exit(-1);
+	}
+	else if (cub->f == NULL || cub->c == NULL || check_nums(cub))
+	{
+		printf("Error: Floor and/or sky colors are missing or invalid.\n");
+		free_all(cub);
+		exit(-1);
+	}
+	else if (cub->map == NULL)
+	{
+		printf("Error: map not found.\n");
+		free_all(cub);
+		exit(-1);
+	}
+}
 void	parse_file(t_cub *cub)
 {
 	int i;
@@ -71,7 +114,7 @@ void	parse_file(t_cub *cub)
 	i = 0;
 	j = 0;
 
-	while(cub->all[i])
+	while (cub->all[i])
 	{
 		j = 0;
 		while (cub->all[i][j])
@@ -94,4 +137,5 @@ void	parse_file(t_cub *cub)
 		}
 		i++;
 	}
+	check_info(cub);
 }

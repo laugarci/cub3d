@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 11:09:51 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:38:11 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	open_map(char *path, t_cub *cub)
 
 	i = 0;
 	count = count_lines(path);
-	cub->all = malloc(sizeof(char *) * count + 1);
+	cub->all = malloc(sizeof(char *) * count);
 	if (!cub->all)
 	{
 		printf("Malloc error\n");
@@ -69,10 +69,14 @@ void	open_map(char *path, t_cub *cub)
 		if (cub->all[i] == NULL)
 			break ;
 		else if (!ft_strncmp(cub->all[i], "\n", 1))
+		{
 			free(cub->all[i]);
+			cub->all[i] = NULL;
+		}
 		else
 			i++;
 	}
+	cub->total_len = i;
 	cub->rows = i - 6;
 	close(fd);
 }

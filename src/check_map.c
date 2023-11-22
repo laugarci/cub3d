@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 16:13:45 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 12:56:05 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,28 @@ void	find_player(t_cub *cub)
 	}
 }
 
+
+
 void	check_map(t_cub *cub)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 0;
-//	while (i < cub->rows)
-//	{	
-//		find_player(cub);
-
-//	}
-//		i++;
-//	}
-	cub = NULL;
+	find_player(cub);
+	while (i < cub->rows)
+	{
+		j = 0;
+		while(cub->map[i][j])
+		{
+			if (i == 0 || i == (cub->rows - 1))
+				check_one(cub->map[i]); //checks retornan int
+			if (j == 0)
+				check_char(cub->map[i][j]);
+			if (cub->map[i][j + 1] == '\n')
+				check_char(cub->map[i][j]);
+			j++;
+		}
+		i++;
+	}
 }

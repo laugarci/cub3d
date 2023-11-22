@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 12:50:14 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:38:09 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,30 @@ void	init_vars(t_cub *cub)
 	cub->player = NULL;
 }
 
-void	free_file(t_cub *cub)
+void	free_matrix(char **matrix, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (cub->all != NULL)
+	if (matrix != NULL)
 	{
-		while(i < cub->total_len)
+		while (i < len)
 		{
-			free(cub->all[i]);
+			free(matrix[i]);
 			i++;
 		}
-		free(cub->all);
-		cub->all = NULL;
+		free(matrix);
+		matrix = NULL;
 	}
 }
 
 void	free_all(t_cub *cub)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (cub->all != NULL)
-		free_file(cub);
+		free_matrix(cub->all, cub->total_len);
 	if (cub->f != NULL)
 		free(cub->f);
 	if (cub->c != NULL)
@@ -64,15 +64,5 @@ void	free_all(t_cub *cub)
 	if (cub->player != NULL)
 		free(cub->player);
 	if (cub->map != NULL)
-	{
-		i = 0;
-		while(i < cub->rows)
-
-		{
-			free(cub->map[i]);
-			i++;
-		}
-		free(cub->map);
-		cub->map = NULL;
-	}
+		free_matrix(cub->map, cub->rows);
 }

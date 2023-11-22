@@ -6,18 +6,18 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 12:33:54 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:08:57 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
 
-int		find_number(char *map, int del)
+int	find_number(char *map, int del)
 {
-	char *tmp;
-	int i;
-	int num;
+	char	*tmp;
+	int		i;
+	int		num;
 
 	i = 0;
 	tmp = malloc(sizeof(char) * del + 1);
@@ -32,12 +32,12 @@ int		find_number(char *map, int del)
 	return (num);
 }
 
-int		*find_color(char *map)
+int	*find_color(char *map)
 {
-	int *color;
-	int i;
-	int c;
-	int num;
+	int	*color;
+	int	i;
+	int	c;
+	int	num;
 
 	color = malloc(sizeof(int) * 3);
 	i = 0;
@@ -49,7 +49,8 @@ int		*find_color(char *map)
 		if (map[i] >= '0' && map[i] <= '9')
 		{
 			c = 0;
-			while (map[i] && map[i] >= '0' && map[i] <= '9' && map[i] != ',' && map[i] != '\n')
+			while (map[i] && map[i] >= '0' && map[i] <= '9'
+				&& map[i] != ',' && map[i] != '\n')
 			{
 				c++;
 				i++;
@@ -59,24 +60,24 @@ int		*find_color(char *map)
 			if (num == 3)
 				break ;
 		}
-			i++;
+		i++;
 	}
 	return (color);
 }
 
-int		check_nums(t_cub *cub)
+int	check_nums(t_cub *cub)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < 3)
+	while (i < 3)
 	{
 		if (cub->f[i] < 0 || cub->f[i] > 255)
 			return (1);
 		i++;
 	}
 	i = 0;
-	while(i < 3)
+	while (i < 3)
 	{
 		if (cub->c[i] < 0 || cub->c[i] > 255)
 			return (1);
@@ -106,15 +107,15 @@ void	check_info(t_cub *cub)
 		exit(-1);
 	}
 }
+
 void	parse_file(t_cub *cub)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-
-	while (cub->all[i])
+	while (i < cub->rows)
 	{
 		j = 0;
 		while (cub->all[i][j])
@@ -131,7 +132,7 @@ void	parse_file(t_cub *cub)
 				cub->w = find_path_to_img(&cub->all[i][j]);
 			if (!ft_strncmp(&cub->all[i][j], "EA ", 3))
 				cub->e = find_path_to_img(&cub->all[i][j]);
-			if (!ft_strncmp(&cub->all[i][j], "111", 3) && cub->map == NULL)	
+			if (!ft_strncmp(&cub->all[i][j], "111", 3) && cub->map == NULL)
 				cub->map = copy_map(i, cub);
 			j++;
 		}

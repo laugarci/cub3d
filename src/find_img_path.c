@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 19:44:53 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:58:38 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*copy_path(char *map, int del)
 
 char	*find_path_to_img(char *map)
 {
-	int	i;
-	int	c;
-	char *path;
+	int		i;
+	int		c;
+	char	*path;
 
 	i = 0;
 	c = 0;
@@ -51,7 +51,8 @@ char	*find_path_to_img(char *map)
 		else
 		{
 			c = 0;
-			while(map[i] && map[i] != ' ' && map[i] != '\t' && map[i] != '\n')
+			while (map[i] && map[i] != ' '
+				&& map[i] != '\t' && map[i] != '\n')
 			{
 				c++;
 				i++;

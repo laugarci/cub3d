@@ -6,16 +6,16 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 12:38:11 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:07:21 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d.h"
 
-int		open_file(char *path)
+int	open_file(char *path)
 {
-	int fd;
+	int	fd;
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
@@ -26,11 +26,11 @@ int		open_file(char *path)
 	return (fd);
 }
 
-int		count_lines(char *path)
+int	count_lines(char *path)
 {
-	char 	*line;
+	char	*line;
 	int		i;
-	int 	fd;
+	int		fd;
 
 	i = 0;
 	line = NULL;
@@ -48,11 +48,23 @@ int		count_lines(char *path)
 	return (i);
 }
 
+void	copy_line(char *line, char ***map, int row)
+{
+	int len;
+
+	len = ft_strlen(line);
+	(*map)[row] = malloc(sizeof(char) * len + 1);
+	if (!(*map)[row])
+		exit(-1);
+	ft_strlcpy((*map)[row], line, len);
+}
+
 void	open_map(char *path, t_cub *cub)
 {
 	int		fd;
 	int		i;
 	int		count;
+	char	*line;
 
 	i = 0;
 	count = count_lines(path);
@@ -63,18 +75,19 @@ void	open_map(char *path, t_cub *cub)
 		exit(-1);
 	}
 	fd = open_file(path);
-	while(42)
+	while (42)
 	{
-		cub->all[i] = get_next_line(fd);
-		if (cub->all[i] == NULL)
+		line = get_next_line(fd);
+		if (line == NULL)
 			break ;
-		else if (!ft_strncmp(cub->all[i], "\n", 1))
-		{
-			free(cub->all[i]);
-			cub->all[i] = NULL;
-		}
+		else if (!ft_strncmp(line, "\n", 1))
+			free(line);
 		else
+		{
+			copy_line(line, &(cub->all), i);
 			i++;
+			free(line);
+		}
 	}
 	cub->total_len = i;
 	cub->rows = i - 6;
@@ -83,7 +96,7 @@ void	open_map(char *path, t_cub *cub)
 
 void	check_arg(char **av)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(av[1]);
 	if (ft_strncmp(av[1] + len - 4, ".cub", 4))

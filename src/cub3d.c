@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 12:45:41 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:08:30 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	print_info(t_cub *cub)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_cub cub;
+	t_cub	cub;
 
 	if (ac == 2)
 	{
@@ -35,12 +35,11 @@ int main(int ac, char **av)
 		init_vars(&cub);
 		open_map(av[1], &cub);
 		parse_file(&cub);
-		free_file(&cub);
-//		print_info(&cub);
+		print_info(&cub);
 		check_map(&cub);
+		free_all(&cub);
 	}
 	else
 		printf("Invalid arguments\n");
-	free_all(&cub);
 	return (0);
 }

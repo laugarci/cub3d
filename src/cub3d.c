@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 18:19:48 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:39:58 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	main(int ac, char **av)
 		init_vars(&cub);
 		open_map(av[1], &cub);
 		parse_file(&cub);
-		check_info(&cub);
 		check_map(&cub);
+		check_info(&cub);
+	//	check_map(&cub);
 		print_info(&cub);
 		free_all(&cub);
 	}

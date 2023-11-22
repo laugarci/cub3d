@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 10:48:54 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:08:03 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_info(t_cub *cub)
 	printf("COLOR F: %d %d %d\nCOLOR C: %d %d %d\n", cub->f[0], cub->f[1], cub->f[2], cub->c[0], cub->c[1], cub->c[2]);
 	
 	int i = 0;
-	while (i < (cub->rows - 6))
+	while (i < (cub->rows))
 	{
 		printf("%s\n", cub->map[i]);
 		i++;

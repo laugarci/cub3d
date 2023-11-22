@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 10:55:20 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:10:10 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char **copy_map(int init, t_cub *cub)
 	
 	j = 0;
 	i = 0;
-	matrix = malloc(sizeof(char *) * (cub->rows - 6));
-	while (i < (cub->rows - 6))
+	matrix = malloc(sizeof(char *) * cub->rows);
+	while (i < cub->rows)
 	{
 		matrix[i] = malloc(sizeof(char) * (ft_strlen(cub->all[init]) + 1));
 		k = 0;

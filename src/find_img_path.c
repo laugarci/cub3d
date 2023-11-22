@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 17:16:04 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:22:47 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void find_path_to_img(char *map, char **path)
 	map += 3;
 	if (*path != NULL)
 	{
-		printf("repes\n");
+		printf("Error: too much paths\n");
 		exit(-1);
 	}
 	while (map[i])
@@ -66,8 +66,7 @@ void find_path_to_img(char *map, char **path)
 	}
 	if (*path == NULL)
 	{
-		printf("Path to image not found, please, check your file\n");
+		printf("Error: path to image not found, please, check your file\n");
 		exit(-1);
 	}
-//	return (path);
 }

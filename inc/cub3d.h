@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 17:10:14 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:33:22 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	invalid_map(t_cub *cub);
 int		check_one(char *str);
 int		check_char(char c);
 void	check_info(t_cub *cub);
+int		check_player(t_cub *cub);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 17:19:53 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:38:51 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	find_color(char *map, int color[3])
 			if (num == 3)
 				break ;
 		}
+		if (map[i] == '\n' && num < 3)
+			break ;
 		i++;
 	}
 }

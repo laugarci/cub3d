@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 16:33:36 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:47:55 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	check_arg(char **av)
 	len = ft_strlen(av[1]);
 	if (ft_strncmp(av[1] + len - 4, ".cub", 4))
 	{
-		printf("Error: el archivo no es valido\n");
+		printf("Error: invalid file\n");
 		exit(-1);
 	}
 }

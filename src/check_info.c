@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:00:06 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 18:19:46 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:20:08 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,6 @@ void	check_info(t_cub *cub)
 	else if (check_nums(cub))
 	{
 		printf("Error: Floor and/or sky colors are missing or invalid.\n");
-		free_all(cub);
-		exit(-1);
-	}
-	else if (check_player(cub))
-	{
-		printf("Error: player needed\n");
 		free_all(cub);
 		exit(-1);
 	}

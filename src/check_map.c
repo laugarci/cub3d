@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 18:39:37 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:20:50 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ void	find_player(t_cub *cub)
 
 	i = 0;
 	flag = 0;
-	printf("rows: %d\n", cub->rows);
 	while (i < cub->rows)
 	{
-		write(1, "entra\n", 6);
 		j = 0;
-		printf("aqui >> %s\n", cub->map[i]);
 		while (cub->map[i][j])
 		{
 			if (cub->map[i][j] == 'S' || cub->map[i][j] == 'N'
@@ -35,7 +32,7 @@ void	find_player(t_cub *cub)
 				flag++;
 				if (flag > 1)
 				{
-					printf("Too much players\n");
+					printf("Error: too much players\n");
 					exit(-1);
 				}
 				cub->player[0] = i;
@@ -61,19 +58,13 @@ void	check_margin(t_cub *cub)
 		j = 0;
 		while (cub->map[i][j])
 		{
-			if (i == 0 || (size_t)i == ft_strlen(cub->map[i]))
+			if (i == 0 || i == (cub->rows - 1))
 				if (check_one(cub->map[i]))
-				{
-					printf("1\n");
 					invalid_map(cub);
-				}
-			if (i == cub->rows)
+			if (i == (cub->rows - 1))
 				if (check_one(cub->map[i]))
-				{
 					invalid_map(cub);
-					printf("2\n");
-				}
-			if (j == 0 || cub->map[i][j + 1] == '\n')
+			if (j == 0 || ((size_t)j + 1) == ft_strlen(cub->map[i]))
 				if (check_char(cub->map[i][j]))
 					invalid_map(cub);
 			j++;
@@ -107,9 +98,13 @@ void	check_playable(t_cub *cub)
 
 void	check_map(t_cub *cub)
 {
-	write(1, "h\n", 2);
 	find_player(cub);
-	write(1, "1\n", 2);
+	if (check_player(cub))
+	{
+		printf("Error: player needed.\n");
+		free_all(cub);
+		exit(-1);
+	}
 	check_margin(cub);
 	check_playable(cub);
 }

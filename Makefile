@@ -6,7 +6,7 @@
 #    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 19:56:59 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/22 10:55:42 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette src/*.c
+	norminette src/* inc/*
 
 -include $(DEPS)
 

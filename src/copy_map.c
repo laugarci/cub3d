@@ -6,71 +6,35 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 22:26:09 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:55:20 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d.h"
 
-#include <stdlib.h>
-
-char	**allocate_matrix(char *map, int rows)
+char **copy_map(int init, t_cub *cub)
 {
-	char **matrix;
-	int	i;
 	int j;
-	int c;
-
-	matrix = malloc(sizeof(char *) * rows);
-	if (!matrix)
-		return (NULL);
-	i = 0;
-	j = 0;
-	c = 0;
-	while(j < rows)
-	{
-		if (map[i] == '\n')
-		{
-			i++;
-			c = i - c;		
-			matrix[j] = malloc(sizeof(char) * (c + 1));
-			j++;
-		}
-		i++;
-	}
-	return (matrix);
-}
-
-char **copy_map(char *map, t_cub *cub)
-{
 	int i;
-	int j;
-	int c;
+	int k;
 	char **matrix;
-
-	matrix = allocate_matrix(map, cub->rows);
-	i = 0;
+	
 	j = 0;
-	while(j < cub->rows)
+	i = 0;
+	matrix = malloc(sizeof(char *) * (cub->rows - 6));
+	while (i < (cub->rows - 6))
 	{
-		c = 0;
-		while(map[i] != '\n' && map[i])
+		matrix[i] = malloc(sizeof(char) * (ft_strlen(cub->all[init]) + 1));
+		k = 0;
+		while (cub->all[init][k] && cub->all[init][k] != '\n')
 		{
-			matrix[j][c] = map[i];
-			c++;
-			i++;
+			matrix[i][k] = cub->all[init][k];
+			k++;
 		}
-		if (map[i] == '\n')
-		{
-			matrix[j][c] = map[i];
-			c++;
-			i++;
-		}
-		matrix[j][c] = '\0';
-		c++;
-		j++;
+		matrix[i][k] = '\0'; 
+		i++;
+		init++;
 	}
 	return (matrix);
 }
-

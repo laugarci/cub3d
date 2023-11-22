@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/21 21:09:19 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:35:48 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,11 @@ void	parse_file(t_cub *cub)
 				cub->w = find_path_to_img(&cub->all[i][j]);
 			if (!ft_strncmp(&cub->all[i][j], "EA ", 3))
 				cub->e = find_path_to_img(&cub->all[i][j]);
-			if (!ft_strncmp(&cub->all[i][j], "111", 3))
-				cub->map = copy_map(cub->all[i], cub);
+			if (!ft_strncmp(&cub->all[i][j], "111", 3) && cub->map == NULL)
+			{
+				printf("aqui: %d\n", i);
+				cub->map = copy_map(i, cub);
+			}
 			j++;
 		}
 		i++;

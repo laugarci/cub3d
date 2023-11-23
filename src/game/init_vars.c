@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:54:22 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/22 15:35:51 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:36:19 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	find_dir_and_plane(t_cub *cub, t_player *player)
 	}
 }
 
-void    init_vars(t_cub *cub, t_player *player)
+void    ft_init_vars(t_cub *cub, t_player *player)
 {
 	find_player_pos(cub, player);
 	find_dir_and_plane(cub, player);

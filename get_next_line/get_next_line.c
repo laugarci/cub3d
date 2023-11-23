@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 18:08:04 by laugarci          #+#    #+#             */
-/*   Updated: 2023/02/02 11:21:00 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:31:51 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_free(char **pt)
 	return (NULL);
 }
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen_gnl(char *str)
 {
 	int	i;
 
@@ -44,13 +44,13 @@ char	*ft_read_str(int fd, char *str)
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (ft_free(&str));
-	while (!ft_strchr(str, '\n') && rdbytes > 0)
+	while (!ft_strchr_gnl(str, '\n') && rdbytes > 0)
 	{
 		rdbytes = read(fd, buf, BUFFER_SIZE);
 		if (rdbytes > 0)
 		{
 			buf[rdbytes] = '\0';
-			str = ft_strjoin(str, buf);
+			str = ft_strjoin_gnl(str, buf);
 		}
 	}
 	free(buf);

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/31 17:19:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/23 11:25:41 by julolle-         ###   ########.fr        #
+#    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
+#    Updated: 2023/11/23 11:55:07 by julolle-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,24 @@ SRC_DIR = src/
 SRC_DIR_GNL = get_next_line/
 
 SRC_FILES = cub3d.c \
-			open_map.c \
-			parser_utils.c \
-			check_map.c \
-			parse_file.c \
-			find_img_path.c \
-			copy_map.c \
-			map_utils.c \
-			check_info.c \
-			check_paths.c \
-			init_vars.c \
-			game.c \
-			render.c
+			parser/open_map.c \
+			parser/parser_utils.c \
+			parser/check_map.c \
+			parser/parse_file.c \
+			parser/find_img_path.c \
+			parser/copy_map.c \
+			parser/map_utils.c \
+			parser/check_info.c \
+			parser/check_paths.c \
+			game/init_vars.c \
+			game/game.c \
+			game/render.c
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c
 
-OBJ_DIR = objs/
+OBJ_DIR = ./objs/
+
 OBJ_FILES = $(SRC_FILES:.c=.o) $(SRC_FILES_GNL:.c=.o)
 OBJS = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
@@ -53,7 +54,7 @@ RM = rm -f
 
 INCLUDE = -I libft/ -I get_next_line/ -I inc/
 
-all: m_libft subsystems $(NAME)
+all: m_libft subsystems $(OBJ_DIR) $(NAME)
 
 m_libft:
 	@make -C libft/
@@ -61,11 +62,16 @@ m_libft:
 subsystems:
 	@make -C $(MLX_PATH) all
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)/parser
+	@mkdir -p $(OBJ_DIR)/game
+
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -L libft/ -lft -o $@ $(MLX_FLAGS)
 
-$(OBJ_DIR):
-	@mkdir $@
+#$(OBJ_DIR):
+#@mkdir $@
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
 	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -c $< -o $@

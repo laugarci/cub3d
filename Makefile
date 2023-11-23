@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/23 13:05:54 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/23 16:16:41 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,10 @@ SRC_FILES = cub3d.c \
 			parser/map_utils.c \
 			parser/check_info.c \
 			parser/check_paths.c \
-			game/init_vars.c \
 			game/game.c \
 			game/render.c \
 			game/minimap.c \
+			game/movements.c
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 11:28:13 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:38:32 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "./mlx/mlx.h"
 # include "defines.h"
+#include "../mlx/mlx.h"
 
 # include "../get_next_line/get_next_line.h"
 
@@ -105,7 +105,7 @@ int		check_player(t_cub *cub);
 void	check_paths(t_cub *cub);
 
 //RENDER
-void    init_vars(t_cub *cub, t_player *player);
+void    ft_init_vars(t_cub *cub, t_player *player);
 void 	game(t_cub *cub, t_player *player);
 void 	render(t_win *wind, t_cub *cub, t_player *player);
 

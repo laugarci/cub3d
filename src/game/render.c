@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 11:21:30 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 11:39:57 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,11 @@ void render(t_win *wind, t_cub *cub, t_player *player)
 
 	x = 0;
 	(void)cub;
+	(void)rnd;
+	(void)player;
 	while (x < wind->wind_x)
 	{
-		ray_vars(wind, &rnd, player, x);
+		//ray_vars(wind, &rnd, player, x);
 		//ray_hit(cub, &rnd);
 		//height_wall(&rnd);
 		x++;

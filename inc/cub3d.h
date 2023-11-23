@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 20:33:22 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:59:36 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ typedef struct s_cub
 	int		total_len;
 }			t_cub;
 
+typedef struct s_fds
+{
+	int		fd_n;
+	int		fd_s;
+	int		fd_e;
+	int		fd_w;
+}			t_fds;
+
 void	check_arg(char **av);
 void	init_vars(t_cub *cub);
 void	open_map(char *path, t_cub *cub);
@@ -49,5 +57,6 @@ int		check_one(char *str);
 int		check_char(char c);
 void	check_info(t_cub *cub);
 int		check_player(t_cub *cub);
+void	check_paths(t_cub *cub);
 
 #endif

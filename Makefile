@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:19:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/22 15:32:02 by julolle-         ###   ########.fr        #
+#    Updated: 2023/11/23 11:25:41 by julolle-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,52 +14,81 @@ NAME = cub3d
 
 HEADER = cub3d.h
 
-CC = gcc
+SRC_DIR = src/
+SRC_DIR_GNL = get_next_line/
 
-RM = rm -f
+SRC_FILES = cub3d.c \
+			open_map.c \
+			parser_utils.c \
+			check_map.c \
+			parse_file.c \
+			find_img_path.c \
+			copy_map.c \
+			map_utils.c \
+			check_info.c \
+			check_paths.c \
+			init_vars.c \
+			game.c \
+			render.c
 
-CFLAGS = -Wall -Wextra -Werror
+SRC_FILES_GNL = get_next_line.c \
+				get_next_line_utils.c
+
+OBJ_DIR = objs/
+OBJ_FILES = $(SRC_FILES:.c=.o) $(SRC_FILES_GNL:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
+
+DEP_FILES = $(SRC_FILES:.c=.d) $(SRC_FILES_GNL:.c=.d)
+DEPS = $(addprefix $(OBJ_DIR), $(DEP_FILES))
 
 MLX_PATH = mlx/
-
 MLX_LIB = $(MLX_PATH)libmlx.a
-
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-CFILES = cub3d.c \
-		 get_next_line/get_next_line.c \
-		 get_next_line/get_next_line_utils.c \
-		 init_vars.c \
-		 game.c \
-		 render.c
+LIBFT = libft/libft.a
 
-OBJECTS = $(CFILES:.c=.o)
-DEPS	= $(CFILES:.c=.d)
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -MMD
+RM = rm -f
 
-all: subsystems $(NAME)
+INCLUDE = -I libft/ -I get_next_line/ -I inc/
 
-%.o : %.c Makefile
-	@$(CC) $(CFLAGS) -MMD -Imlx -c $< -o $@
-	@echo "Compiling $<..."
+all: m_libft subsystems $(NAME)
+
+m_libft:
+	@make -C libft/
 
 subsystems:
-	make -C $(MLX_PATH) all
+	@make -C $(MLX_PATH) all
 
-$(NAME): $(OBJECTS)
-	@$(CC) -o $(NAME) $(MLX_FLAGS) $(MLX_LIB) $(OBJECTS)
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -L libft/ -lft -o $@ $(MLX_FLAGS)
+
+$(OBJ_DIR):
+	@mkdir $@
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c Makefile
+	$(CC) $(CFLAGS) -Imlx $(INCLUDE) -c $< -o $@
+
+$(OBJ_DIR)%.o: $(SRC_DIR_GNL)%.c $(SRC_DIR_GNL)get_next_line.h Makefile
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJECTS) $(DEPS)
+	$(RM) $(OBJS) $(DEPS)
+	@make -C libft/ clean
 	@make -C $(MLX_PATH) clean
 
-fclean: clean 
-	@$(RM) $(NAME)
+fclean: clean
+	$(RM) -r $(OBJ_DIR)
+	$(RM) $(NAME)
+	@make -C libft/ fclean
 
 re: fclean all
 
 norm:
-	norminette *.c *.h
+	norminette src/* inc/*
 
 -include $(DEPS)
 
 .PHONY: all clean fclean re norm
+	 

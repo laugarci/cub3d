@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:13:11 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 15:48:44 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:01:01 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_minimap(t_cub *cub, t_win *wind)
 		if (!cub->map[x][y])
 			break ;
 		x = 0;
-		while (cub->map[x][y])
+		while (x < cub->cols)
 		{
 			if (cub->map[y][x] == '1')
 				print_minimap_aux(cub, wind, x, y, 0x00ffffff);

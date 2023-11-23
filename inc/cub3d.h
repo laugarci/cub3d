@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 15:49:17 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:12:48 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,20 @@ typedef struct s_cub
 	int		rows;
 	int		cols;
 	int		total_len;
+	int		x; //float
+	int		y; //float
 }			t_cub;
+
+typedef struct s_player {
+	int	posx; //float
+	int	posy; //float
+	//float	ang;
+	float	dirx;
+	float	diry;
+	float	planex;
+	float	planey;
+}	t_player;
+
 
 typedef struct s_win {
 	void	*img;
@@ -47,17 +60,9 @@ typedef struct s_win {
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
+	t_cub	*cub;
+	t_player *player;
 }	t_win;
-
-typedef struct s_player {
-	int		init_pos[2];
-	float	posx;
-	float	posy;
-	float	dirx;
-	float	diry;
-	float	planex;
-	float	planey;
-}	t_player;
 
 typedef struct s_rnd {
 	int		mapx;
@@ -84,7 +89,7 @@ void	check_arg(char **av);
 void	init_vars(t_cub *cub);
 void	open_map(char *path, t_cub *cub);
 void	free_map(t_cub *cub);
-void	check_map(t_cub *cub);
+void	check_map(t_cub *cub, t_player *player);
 void	parse_file(t_cub *cub);
 void	find_path_to_img(char *map, char **path);
 char	**copy_map(int init, t_cub *cub);
@@ -102,9 +107,12 @@ void	count_cols(t_cub *cub);
 void	print_minimap(t_cub *cub, t_win *wind);
 
 //RENDER
-void    ft_init_vars(t_cub *cub, t_player *player);
 void 	game(t_cub *cub, t_player *player);
 void 	render(t_win *wind, t_cub *cub, t_player *player);
-void	my_mlx_pixel_put(t_win *win, int x, int y, int color);
+void	my_mlx_pixel_put(t_win *wind, int x, int y, int color);
+
+//MAP
+int		movements(int mov, t_win *wind);
+int		close_window(t_win *wind);
 
 #endif

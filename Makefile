@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+         #
+#    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/31 17:19:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/21 10:03:33 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/22 15:32:02 by julolle-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CFILES = cub3d.c \
 		 get_next_line/get_next_line.c \
-		 get_next_line/get_next_line_utils.c
+		 get_next_line/get_next_line_utils.c \
+		 init_vars.c \
+		 game.c \
+		 render.c
 
 OBJECTS = $(CFILES:.c=.o)
 DEPS	= $(CFILES:.c=.d)

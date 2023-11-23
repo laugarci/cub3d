@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 12:23:00 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:31:10 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ void	find_player(t_cub *cub)
 				}
 				cub->player[0] = i;
 				cub->player[1] = j;
-
+				cub->map[i][j] = '0';
 			}
 			j++;
 		}
 		i++;
+	}
+	if (flag > 1)
+	{
+		printf("Error: too much players\n");
+		exit(-1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 16:58:25 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:46:38 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_vars(t_cub *cub)
 	cub->w = NULL;
 	cub->map = NULL;
 	cub->rows = 0;
+	cub->cols = 0;
 	cub->f[0] = -1;
 	cub->f[1] = -1;
 	cub->f[2] = -1;

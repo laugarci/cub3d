@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 11:40:33 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:19:25 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_info(t_cub *cub)
 int	main(int ac, char **av)
 {
 	t_cub	cub;
-	//t_player	player;	
+	t_player	player;	
 
 	if (ac != 2)
 	{
@@ -41,11 +41,10 @@ int	main(int ac, char **av)
 	open_map(av[1], &cub);
 	parse_file(&cub);
 	check_info(&cub);
-	check_map(&cub);
+	check_map(&cub, &player);
 	check_paths(&cub);
 	print_info(&cub);
-	//ft_init_vars(&cub, &player);
-	//game(&cub, &player);
+	game(&cub, &player);
 	free_all(&cub);
 	return (0);
 }

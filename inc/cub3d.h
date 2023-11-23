@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 11:38:32 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:15:04 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ typedef struct s_win {
 }	t_win;
 
 typedef struct s_player {
-	int		init_pos[2];
 	float	posx;
 	float	posy;
+	//float	ang;
 	float	dirx;
 	float	diry;
 	float	planex;
@@ -91,7 +91,7 @@ void	check_arg(char **av);
 void	init_vars(t_cub *cub);
 void	open_map(char *path, t_cub *cub);
 void	free_map(t_cub *cub);
-void	check_map(t_cub *cub);
+void	check_map(t_cub *cub, t_player *player);
 void	parse_file(t_cub *cub);
 void	find_path_to_img(char *map, char **path);
 char	**copy_map(int init, t_cub *cub);
@@ -105,8 +105,8 @@ int		check_player(t_cub *cub);
 void	check_paths(t_cub *cub);
 
 //RENDER
-void    ft_init_vars(t_cub *cub, t_player *player);
 void 	game(t_cub *cub, t_player *player);
 void 	render(t_win *wind, t_cub *cub, t_player *player);
+void	my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 
 #endif

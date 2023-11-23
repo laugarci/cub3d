@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 10:46:23 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:15:11 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int	movements(int key, t_win *wind)
 void game(t_cub *cub, t_player *player)
 {
 	t_win wind;
-
+	(void)cub;
+	(void)player;
+	
 	wind.wind_x = 1920;
 	wind.wind_y = 1080;
 	
@@ -38,6 +40,5 @@ void game(t_cub *cub, t_player *player)
 	mlx_hook(wind.mlx_win, 17, 1L << 5, close_window, &wind);
 	mlx_hook(wind.mlx_win, 2, 1L << 0, movements, &wind);
 	render(&wind, cub, player);
-
 	mlx_loop(wind.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 15:39:06 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:27:05 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
 	rnd->camx = 2 * x / (double)wind->wind_x - 1;
 	rnd->raydirx = ply->dirx + ply->planex * rnd->camx;
 	rnd->raydiry = ply->diry + ply->planey * rnd->camx;
+	rnd->mapx = (int)ply->posx;
+	rnd->mapy = (int)ply->posy;
 	if (rnd->raydirx == 0)
 		rnd->delta_distx = 1e30;
 	else
@@ -61,11 +63,10 @@ void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
 	find_side_dist(rnd, ply);
 }
 
-void	ray_hit(t_cub *cub, t_rnd *rnd, t_player *ply)
+void	ray_hit(t_cub *cub, t_rnd *rnd)
 {
 	rnd->hit = 0;
-	rnd->mapx = (int)ply->posx;
-	rnd->mapy = (int)ply->posy;
+	
  	while (rnd->hit == 0)
 	{
 		if (rnd->side_distx < rnd->side_disty)
@@ -105,16 +106,18 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 	int y;
 	int color;
 
-	(void)rnd;
 	color = 0xFFF0000;
 	y = 0;
 	while (y < wind->wind_y)
 	{
-		if (rnd->line_start < y && rnd->line_end > y)
-			my_mlx_pixel_put(wind, x, y, 0xFFF0000);
+		if (y < rnd->line_start)
+			my_mlx_pixel_put(wind, x, y, 0xFF00FF);
+		else if (rnd->line_start < y && rnd->line_end > y)
+			my_mlx_pixel_put(wind, x, y, 0x00FFFF);
+		else
+			my_mlx_pixel_put(wind, x, y, 0x01EA67);
 		y++;
 	}
-
 }
 
 void debug_game(t_cub *cub, t_player *player, t_rnd *rnd)
@@ -141,7 +144,7 @@ void render(t_win *wind, t_cub *cub, t_player *player)
 	while (x < wind->wind_x)
 	{
 		ray_vars(wind, &rnd, player, x);
-		ray_hit(cub, &rnd, player);
+		ray_hit(cub, &rnd);
 		height_wall(wind, &rnd);
 		print_stripe(wind, &rnd, x);
 		x++;

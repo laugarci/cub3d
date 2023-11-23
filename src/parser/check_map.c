@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 17:50:32 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:31:47 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	find_player(t_cub *cub)
 				cub->player[0] = i;
 				cub->player[1] = j;
 				cub->p = cub->map[i][j];
-				cub->map[i][j] = '0';
+			//	cub->map[i][j] = '0';
 			}
 			j++;
 		}

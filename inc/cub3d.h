@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 17:50:08 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:42:59 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,8 @@ void	my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 //MAP
 int		movements(int mov, t_win *wind);
 int		close_window(t_win *wind);
+
+//DEBUG -- BORRAR
+void	print_info(t_cub *cub);
 
 #endif

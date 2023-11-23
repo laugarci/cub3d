@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 20:20:50 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:23:00 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,41 @@ void	find_player(t_cub *cub)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	find_dir_player(t_cub *cub, t_player *player)
+{
+	player->posx = cub->player[0];
+	player->posy = cub->player[1];
+
+	if (cub->map[cub->player[0]][cub->player[1]] == 'N')
+	{
+		player->dirx = 0;
+		player->diry = 1;
+		player->planex = 0;
+		player->planey = 0.66;
+	}
+	else if (cub->map[cub->player[0]][cub->player[1]] == 'S')
+	{
+		player->dirx = 0;
+		player->diry = -1;
+		player->planex = 0;
+		player->planey = -0.66;
+	}
+	else if (cub->map[cub->player[0]][cub->player[1]] == 'E')
+	{
+		player->dirx = 1;
+		player->diry = 0;
+		player->planex = 0.66;
+		player->planey = 0;
+	}
+	else if (cub->map[cub->player[0]][cub->player[1]] == 'W')
+	{
+		player->dirx = -1;
+		player->diry = 0;
+		player->planex = -0.66;
+		player->planey = 0;
 	}
 }
 
@@ -96,9 +131,10 @@ void	check_playable(t_cub *cub)
 		invalid_map(cub);
 }
 
-void	check_map(t_cub *cub)
+void	check_map(t_cub *cub, t_player *player)
 {
 	find_player(cub);
+	find_dir_player(cub, player);
 	if (check_player(cub))
 	{
 		printf("Error: player needed.\n");

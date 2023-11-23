@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 10:01:06 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:52:15 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,24 @@ char	**copy_map(int init, t_cub *cub)
 		init++;
 	}
 	return (matrix);
+}
+
+void	count_cols(t_cub *cub)
+{
+	int i;
+	int j;
+	int count;
+
+	i = 0;
+	count = 0;
+	while (i < cub->rows)
+	{
+		j = 0;
+		while(cub->map[i][j])
+			j++;
+		if (j > count)
+			count = j;
+		i++;
+	}
+	cub->cols = count;
 }

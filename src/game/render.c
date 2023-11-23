@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 17:27:05 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:31:52 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 void debug_game(t_cub *cub, t_player *player, t_rnd *rnd)
 {
 	(void)cub;
-	printf("posx %f posy %f\n", player->posx, player->posy);
+//	printf("posx %f posy %f\n", player->posx, player->posy);
 	printf("dirx %f diry %f\n", player->dirx, player->diry);
 	printf("planex %f planey %f\n\n\n", player->planex, player->planey);
 	
@@ -141,6 +141,7 @@ void render(t_win *wind, t_cub *cub, t_player *player)
 	wind->img = mlx_new_image(wind->mlx, wind->wind_x, wind->wind_y);
 	wind->addr = mlx_get_data_addr(wind->img, &wind->bits_per_pixel, \
 		&wind->line_lenght, &wind->endian);
+	printf("x: %d y: %d\n", player->posx, player->posy);
 	while (x < wind->wind_x)
 	{
 		ray_vars(wind, &rnd, player, x);

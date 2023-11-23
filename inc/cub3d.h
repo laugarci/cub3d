@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 11:38:32 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:49:17 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,9 @@ typedef struct s_cub
 	char	**all;
 	int		player[2];
 	int		rows;
+	int		cols;
 	int		total_len;
 }			t_cub;
-
-typedef struct s_fds
-{
-	int		fd_n;
-	int		fd_s;
-	int		fd_e;
-	int		fd_w;
-}			t_fds;
 
 typedef struct s_win {
 	void	*img;
@@ -86,7 +79,7 @@ typedef struct s_rnd {
 	int		line_end;
 }	t_rnd;
 
-
+//PARSER
 void	check_arg(char **av);
 void	init_vars(t_cub *cub);
 void	open_map(char *path, t_cub *cub);
@@ -103,10 +96,15 @@ int		check_char(char c);
 void	check_info(t_cub *cub);
 int		check_player(t_cub *cub);
 void	check_paths(t_cub *cub);
+void	count_cols(t_cub *cub);
+
+//MINIMAP
+void	print_minimap(t_cub *cub, t_win *wind);
 
 //RENDER
 void    ft_init_vars(t_cub *cub, t_player *player);
 void 	game(t_cub *cub, t_player *player);
 void 	render(t_win *wind, t_cub *cub, t_player *player);
+void	my_mlx_pixel_put(t_win *win, int x, int y, int color);
 
 #endif

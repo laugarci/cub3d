@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/21 13:57:17 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:26:50 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 # define DEFINES_H
 
 //KEYS
+
 # define ESC	53
-# define UP		125
-# define DOWN	126
-# define RIGHT	124
-# define LEFT	123
-# define CTRL	256
-# define TAB	48
-# define KEY_W	13
-# define KEY_S	1
-# define KEY_Q	12
-# define KEY_A	0
+
+# define CAM_UP		125
+# define CAM_DOWN	126
+# define CAM_RIGHT	124
+# define CAM_LEFT	123
+
+# define UP 13
+# define LEFT 0
+# define DOWN 1
+# define RIGHT 2
 
 #endif

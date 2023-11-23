@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 10:15:12 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:59:56 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,14 @@ void	find_color(char *map, int color[3])
 	{
 		if (map[i] == ',' || map[i] == ' ' || map[i] == '\t')
 			i++;
-		if (map[i] >= '0' && map[i] <= '9')
+		if ((map[i] >= '0' && map[i] <= '9') || (map[i] == '-' && (map[i + 1] >= '0' && map[i + 1] <= '9')))
 		{
 			c = 0;
+			if (map[i] == '-')
+			{
+				c++;
+				i++;
+			}
 			while (map[i] && map[i] >= '0' && map[i] <= '9'
 				&& map[i] != ',' && map[i] != '\n')
 			{

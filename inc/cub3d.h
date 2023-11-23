@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 17:12:48 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:50:08 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_cub
 	char	*s;
 	char	*e;
 	char	*w;
+	char	p;
 	int		f[3];
 	int		c[3];
 	char	**map;

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 17:31:52 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/23 21:31:48 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ void	my_mlx_pixel_put(t_win *wind, int x, int y, int color)
 	img = (int *)wind->addr;
 	if (x >= 0 && x < wind->wind_x && y >= 0 && y < wind->wind_y)
 		img[x + wind->wind_x * y] = color;
+}
+
+void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
+{
+	rnd->camx = 2 * x / (float)wind->wind_x - 1;
+	rnd->raydirx = ply->dirx + ply->planex * rnd->camx;
+	rnd->raydiry = ply->diry + ply->planey * rnd->camx;
+	rnd->mapx = (int)ply->posx;
+	rnd->mapy = (int)ply->posy;
+	if (rnd->raydirx == 0)
+		rnd->delta_distx = 1e20;
+	else
+		rnd->delta_distx = 1 / rnd->raydirx;
+	if (rnd->raydiry == 0)	
+		rnd->delta_disty = 1e20;
+	else
+		rnd->delta_disty = 1 / rnd->raydiry;
 }
 
 void	find_side_dist(t_rnd *rnd, t_player *ply)
@@ -45,24 +62,6 @@ void	find_side_dist(t_rnd *rnd, t_player *ply)
 	}
 }
 
-void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
-{
-	rnd->camx = 2 * x / (double)wind->wind_x - 1;
-	rnd->raydirx = ply->dirx + ply->planex * rnd->camx;
-	rnd->raydiry = ply->diry + ply->planey * rnd->camx;
-	rnd->mapx = (int)ply->posx;
-	rnd->mapy = (int)ply->posy;
-	if (rnd->raydirx == 0)
-		rnd->delta_distx = 1e30;
-	else
-		rnd->delta_distx = 1 / rnd->raydirx;
-	if (rnd->raydiry == 0)	
-		rnd->delta_disty = 1e30;
-	else
-		rnd->delta_disty = 1 / rnd->raydiry;
-	find_side_dist(rnd, ply);
-}
-
 void	ray_hit(t_cub *cub, t_rnd *rnd)
 {
 	rnd->hit = 0;
@@ -81,7 +80,7 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 			rnd->mapy += rnd->stepy;
 			rnd->side = 1;
 		}
-		if (cub->map[rnd->mapx][rnd->mapy] > 0)
+		if (cub->map[rnd->mapx][rnd->mapy] == '1')
 			rnd->hit = 1;
 	}
 }
@@ -108,47 +107,43 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 
 	color = 0xFFF0000;
 	y = 0;
+
 	while (y < wind->wind_y)
 	{
 		if (y < rnd->line_start)
 			my_mlx_pixel_put(wind, x, y, 0xFF00FF);
 		else if (rnd->line_start < y && rnd->line_end > y)
-			my_mlx_pixel_put(wind, x, y, 0x00FFFF);
+		{
+			if (rnd->side == 0)
+				my_mlx_pixel_put(wind, x, y, 0x00FFFF);
+			else
+				my_mlx_pixel_put(wind, x, y, 0x00BDFE);
+		}
 		else
 			my_mlx_pixel_put(wind, x, y, 0x01EA67);
 		y++;
 	}
+	my_mlx_pixel_put(wind, wind->player->posx, wind->player->posy, 0x0000000);
 }
 
-void debug_game(t_cub *cub, t_player *player, t_rnd *rnd)
-{
-	(void)cub;
-//	printf("posx %f posy %f\n", player->posx, player->posy);
-	printf("dirx %f diry %f\n", player->dirx, player->diry);
-	printf("planex %f planey %f\n\n\n", player->planex, player->planey);
-	
-	printf("mapx %i mapy %i\n", rnd->mapx, rnd->mapy);
-	printf("stepx %i stepy %i\n", rnd->stepx, rnd->stepy);
-	printf("line start %i line end %i\n", rnd->line_start, rnd->line_end);
-}
-
-void render(t_win *wind, t_cub *cub, t_player *player)
+int render(t_win *wind)
 {
 	int		x;
 	t_rnd	rnd;
-
+	
 	x = 0;
 	wind->img = mlx_new_image(wind->mlx, wind->wind_x, wind->wind_y);
 	wind->addr = mlx_get_data_addr(wind->img, &wind->bits_per_pixel, \
 		&wind->line_lenght, &wind->endian);
-	printf("x: %d y: %d\n", player->posx, player->posy);
 	while (x < wind->wind_x)
 	{
-		ray_vars(wind, &rnd, player, x);
-		ray_hit(cub, &rnd);
+		ray_vars(wind, &rnd, wind->player, x);
+		find_side_dist(&rnd, wind->player);
+		ray_hit(wind->cub, &rnd);
 		height_wall(wind, &rnd);
 		print_stripe(wind, &rnd, x);
 		x++;
 	}
 	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->img, 0, 0);
+	return (0);
 }

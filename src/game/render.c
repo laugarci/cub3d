@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 21:31:48 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:46:50 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 			my_mlx_pixel_put(wind, x, y, 0xFF00FF);
 		else if (rnd->line_start < y && rnd->line_end > y)
 		{
+			//apply_textures(wind, rnd, x);
 			if (rnd->side == 0)
 				my_mlx_pixel_put(wind, x, y, 0x00FFFF);
 			else

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:59:43 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 12:08:46 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:46:56 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	move_cam_left(t_player *player)
 {
-	player->dirx = 0;
-	player->diry = 1;
+	player->dirx -= 0.1; //dirx y diry revisar
+	player->diry += 0.1;
 	player->planex = 0;
 	player->planey += 0.1;
 }
 
 void	move_cam_right(t_player *player)
 {
-	player->dirx = 0;
-	player->diry = 1;
+	player->dirx += 0.1; //dirx y diry revisar
+	player->diry -= 0.1;
 	player->planex = 0;
 	player->planey -= 0.1;
 }

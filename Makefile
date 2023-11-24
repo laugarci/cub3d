@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/23 16:16:41 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/24 11:03:43 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_FILES = cub3d.c \
 			game/game.c \
 			game/render.c \
 			game/minimap.c \
-			game/movements.c
+			game/movements.c \
+			game/cam_movements.c \
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

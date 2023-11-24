@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 18:42:59 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:28:43 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include "defines.h"
 #include "../mlx/mlx.h"
+ #include <math.h>
 
 # include "../get_next_line/get_next_line.h"
 
@@ -40,9 +41,10 @@ typedef struct s_cub
 	int		y; //float
 }			t_cub;
 
+
 typedef struct s_player {
-	int	posx; //float
-	int	posy; //float
+	float	posx; //float
+	float	posy; //float
 	//float	ang;
 	float	dirx;
 	float	diry;
@@ -109,12 +111,14 @@ void	print_minimap(t_cub *cub, t_win *wind);
 
 //RENDER
 void 	game(t_cub *cub, t_player *player);
-void 	render(t_win *wind, t_cub *cub, t_player *player);
+int 	render(t_win *wind);
 void	my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 
 //MAP
 int		movements(int mov, t_win *wind);
 int		close_window(t_win *wind);
+void	move_cam_left(t_player *player);
+void	move_cam_right(t_player *player);
 
 //DEBUG -- BORRAR
 void	print_info(t_cub *cub);

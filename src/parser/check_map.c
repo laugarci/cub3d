@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 18:31:47 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:33:32 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,28 @@ void	find_dir_player(t_cub *cub, t_player *player)
 	player->posx = cub->player[0];
 	player->posy = cub->player[1];
 
-	if (cub->map[cub->player[0]][cub->player[1]] == 'N')
+	if (cub->p == 'N')
 	{
 		player->dirx = 0;
 		player->diry = 1;
 		player->planex = 0;
 		player->planey = 0.66;
 	}
-	else if (cub->map[cub->player[0]][cub->player[1]] == 'S')
+	else if (cub->p == 'S')
 	{
 		player->dirx = 0;
 		player->diry = -1;
 		player->planex = 0;
 		player->planey = -0.66;
 	}
-	else if (cub->map[cub->player[0]][cub->player[1]] == 'E')
+	else if (cub->p == 'E')
 	{
 		player->dirx = 1;
 		player->diry = 0;
 		player->planex = 0.66;
 		player->planey = 0;
 	}
-	else if (cub->map[cub->player[0]][cub->player[1]] == 'W')
+	else if (cub->p == 'W')
 	{
 		player->dirx = -1;
 		player->diry = 0;

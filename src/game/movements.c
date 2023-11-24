@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 18:46:28 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:33:23 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	move_left(t_player *player, t_cub *cub, int x, int y)
 void	move_right(t_player *player, t_cub *cub, int x, int y)
 {
 	cub->map[x][y] = '0';
-	cub->map[x][y - 1] = cub->p;
+	cub->map[x][y + 1] = cub->p;
 	player->posy = y + 1;
 }
 
@@ -57,6 +57,10 @@ int	movements(int mov, t_win *wind)
 		move_down(wind->player, wind->cub, x, y);
 	if (mov == RIGHT && wind->cub->map[x][y + 1] != '1')
 		move_right(wind->player, wind->cub, x, y);
-	render(wind, wind->cub, wind->player);
+	if (mov == CAM_RIGHT)
+		move_cam_right(wind->player);
+	if (mov == CAM_LEFT)
+		move_cam_left(wind->player);
+	render(wind);
 	return (0);
 }

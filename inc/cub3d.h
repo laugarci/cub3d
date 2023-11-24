@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 21:14:11 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:43:43 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_cub
 	int		total_len;
 	int		x; //float
 	int		y; //float
+	
 }			t_cub;
 
 
@@ -63,8 +64,9 @@ typedef struct s_win {
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
-	t_cub	*cub;
-	t_player *player;
+	t_cub		*cub;
+	t_player	*player;
+	
 }	t_win;
 
 typedef struct s_rnd {

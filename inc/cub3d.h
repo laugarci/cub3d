@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 11:28:43 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:27:33 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ typedef struct s_cub
 	int		rows;
 	int		cols;
 	int		total_len;
-	int		x; //float
-	int		y; //float
+	float		x;
+	float		y;
 }			t_cub;
 
 
 typedef struct s_player {
-	float	posx; //float
-	float	posy; //float
+	float	posx;
+	float	posy;
 	//float	ang;
 	float	dirx;
 	float	diry;

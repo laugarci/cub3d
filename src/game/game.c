@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 21:00:55 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/24 12:35:56 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ void game(t_cub *cub, t_player *player)
 	mlx_hook(wind.mlx_win, 2, 1L << 0, movements, &wind);
 	mlx_hook(wind.mlx_win, 17, 1L << 5, close_window, &wind);
 	render(&wind);
-	
-//	print_minimap(cub, &wind);
 	mlx_loop(wind.mlx);
 }

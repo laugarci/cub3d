@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 14:47:24 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:38:02 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,8 +132,8 @@ void	check_playable(t_cub *cub)
 		}
 		i++;
 	}
-	if (zero == 0)
-		invalid_map(cub);
+//	if (zero == 0)
+//		invalid_map(cub);
 }
 
 void	check_map(t_cub *cub, t_player *player)

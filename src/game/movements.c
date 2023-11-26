@@ -6,38 +6,55 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 14:41:39 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/26 19:28:57 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	move_up(t_player *player, t_cub *cub, int x, int y)
+int	check_correct(char **map, int x, int y)
 {
-	player->posx = x - 1;
-	(void)y;
-	(void)cub;
+	if (x < 0 || y < 0)
+		return (0);
+	if (map[x][y] == '1')
+		return (0);
+	return (1);
 }
 
-void	move_down(t_player *player, t_cub *cub, int x, int y)
+void	do_up(t_player *player, t_cub *cub)
 {
-	player->posx = x + 1;
-	(void)y;
-	(void)cub;
+	if (check_correct(cub->map, player->posx + \
+		player->dirx * SPEED, player->posy))
+		player->posx += player->dirx * SPEED;
+	if (check_correct(cub->map, player->posx, \
+		player->posy + player->diry * SPEED))
+		player->posy += player->diry * SPEED;
 }
 
-void	move_left(t_player *player, t_cub *cub, int x, int y)
+void	do_left(t_player *player, t_cub *cub)
 {
-	player->posy = y - 1;
-	(void)x;
-	(void)cub;
+	if (check_correct(cub->map, player->posx - player->diry * SPEED, player->posy))
+		player->posx -= player->diry * SPEED;
+	if (check_correct(cub->map, player->posx, player->posy + player->dirx * SPEED))
+		player->posy += player->dirx * SPEED;
 }
 
-void	move_right(t_player *player, t_cub *cub, int x, int y)
+void	do_down(t_player *player, t_cub *cub)
 {
-	player->posy = y + 1;
-	(void)x;
-	(void)cub;
+	if (check_correct(cub->map, player->posx - \
+		player->dirx * SPEED, player->posy))
+		player->posx -= player->dirx * SPEED;
+	if (check_correct(cub->map, player->posx, \
+		player->posy - player->diry * SPEED))
+		player->posy -= player->diry * SPEED;
+}
+
+void	do_right(t_player *player, t_cub *cub)
+{
+	if (check_correct(cub->map, player->posx + player->diry * SPEED, player->posy))
+		player->posx += player->diry * SPEED;
+	if (check_correct(cub->map, player->posx, player->posy - player->dirx * SPEED))
+		player->posy -= player->dirx * SPEED;
 }
 
 int	movements(int mov, t_win *wind)
@@ -49,18 +66,18 @@ int	movements(int mov, t_win *wind)
 	y = wind->player->posy;
 	if (mov == ESC)
 		close_window(wind);
-	if (mov == UP && wind->cub->map[x - 1][y] != '1')
-		move_up(wind->player, wind->cub, x, y);
-	if (mov == LEFT && wind->cub->map[x][y - 1] != '1')
-		move_left(wind->player, wind->cub, x, y);
-	if (mov == DOWN && wind->cub->map[x + 1][y] != '1')
-		move_down(wind->player, wind->cub, x, y);
-	if (mov == RIGHT && wind->cub->map[x][y + 1] != '1')
-		move_right(wind->player, wind->cub, x, y);
+	if (mov == UP)
+		do_up(wind->player, wind->cub);
+	if (mov == DOWN)
+		do_down(wind->player, wind->cub);
+	if (mov == LEFT)
+		do_left(wind->player, wind->cub);
+	if (mov == RIGHT)
+		do_right(wind->player, wind->cub);
 	if (mov == CAM_RIGHT)
-		move_cam_right(wind->player);
+		move_cam(wind->player, CAM_RIGHT);
 	if (mov == CAM_LEFT)
-		move_cam_left(wind->player);
+		move_cam(wind->player, CAM_LEFT);
 	render(wind);
 	return (0);
 }

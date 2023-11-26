@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/24 11:03:31 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/26 19:23:28 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@
 # define LEFT 0
 # define DOWN 1
 # define RIGHT 2
+
+# define SPEED 0.09
+# define TURN 0.05
 
 #endif

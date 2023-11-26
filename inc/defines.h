@@ -6,13 +6,16 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/23 15:26:50 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:42:18 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 
+//SCREEN
+# define WIDTH  1920
+# define HEIGHT 1080 
 //KEYS
 
 # define ESC	53

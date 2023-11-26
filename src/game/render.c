@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/24 12:46:50 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:11:13 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	my_mlx_pixel_put(t_win *wind, int x, int y, int color)
 {
 	int	*img;
 
-	img = (int *)wind->addr;
-	if (x >= 0 && x < wind->wind_x && y >= 0 && y < wind->wind_y)
-		img[x + wind->wind_x * y] = color;
+	img = (int *)wind->image.addr;
+	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
+		img[x + WIDTH * y] = color;
 }
 
-void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
+void	ray_vars(t_rnd *rnd, t_player *ply, int x)
 {
-	rnd->camx = 2 * x / (float)wind->wind_x - 1;
+	rnd->camx = 2 * x / (float)WIDTH - 1;
 	rnd->raydirx = ply->dirx + ply->planex * rnd->camx;
 	rnd->raydiry = ply->diry + ply->planey * rnd->camx;
 	rnd->mapx = (int)ply->posx;
@@ -85,46 +85,19 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 	}
 }
 
-void	height_wall(t_win *wind, t_rnd *rnd)
+void	height_wall(t_rnd *rnd)
 {
 
 	if (rnd->side == 0) 
 		rnd->perpwalldist = rnd->side_distx - rnd->delta_distx;
 	else
 		rnd->perpwalldist = rnd->side_disty - rnd->delta_disty;
-	rnd->line_height = (int)(wind->wind_y / rnd->perpwalldist);
+	rnd->line_height = (int)(HEIGHT / rnd->perpwalldist);
 	
-	rnd->line_start = (wind->wind_y / 2) - (rnd->line_height / 2);
+	rnd->line_start = (HEIGHT / 2) - (rnd->line_height / 2);
 	if (rnd->line_start < 0)
 		rnd->line_start = 0;
-	rnd->line_end = wind->wind_y - rnd->line_start;
-}
-
-void print_stripe(t_win *wind, t_rnd *rnd, int x)
-{
-	int y;
-	int color;
-
-	color = 0xFFF0000;
-	y = 0;
-
-	while (y < wind->wind_y)
-	{
-		if (y < rnd->line_start)
-			my_mlx_pixel_put(wind, x, y, 0xFF00FF);
-		else if (rnd->line_start < y && rnd->line_end > y)
-		{
-			//apply_textures(wind, rnd, x);
-			if (rnd->side == 0)
-				my_mlx_pixel_put(wind, x, y, 0x00FFFF);
-			else
-				my_mlx_pixel_put(wind, x, y, 0x00BDFE);
-		}
-		else
-			my_mlx_pixel_put(wind, x, y, 0x01EA67);
-		y++;
-	}
-	my_mlx_pixel_put(wind, wind->player->posx, wind->player->posy, 0x0000000);
+	rnd->line_end = HEIGHT - rnd->line_start;
 }
 
 int render(t_win *wind)
@@ -133,18 +106,18 @@ int render(t_win *wind)
 	t_rnd	rnd;
 	
 	x = 0;
-	wind->img = mlx_new_image(wind->mlx, wind->wind_x, wind->wind_y);
-	wind->addr = mlx_get_data_addr(wind->img, &wind->bits_per_pixel, \
-		&wind->line_lenght, &wind->endian);
-	while (x < wind->wind_x)
+	wind->image.img = mlx_new_image(wind->mlx, WIDTH, HEIGHT);
+	wind->image.addr = mlx_get_data_addr(wind->image.img, &wind->image.bits_per_pixel, \
+		&wind->image.line_len, &wind->image.endian);
+	while (x < WIDTH)
 	{
-		ray_vars(wind, &rnd, wind->player, x);
+		ray_vars(&rnd, wind->player, x);
 		find_side_dist(&rnd, wind->player);
 		ray_hit(wind->cub, &rnd);
-		height_wall(wind, &rnd);
+		height_wall(&rnd);
 		print_stripe(wind, &rnd, x);
 		x++;
 	}
-	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->img, 0, 0);
+	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->image.img, 0, 0);
 	return (0);
 }

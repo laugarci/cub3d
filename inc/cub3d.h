@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 14:43:43 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:08:38 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "defines.h"
-#include "../mlx/mlx.h"
- #include <math.h>
+# include "../mlx/mlx.h"
+# include <math.h>
+# include <string.h>
+ 
 
 # include "../get_next_line/get_next_line.h"
 
@@ -53,20 +55,24 @@ typedef struct s_player {
 	float	planey;
 }	t_player;
 
-
-typedef struct s_win {
+typedef struct s_img
+{
 	void	*img;
 	char	*addr;
-	void	*mlx;
-	void	*mlx_win;
-	int		wind_x;
-	int		wind_y;
 	int		bits_per_pixel;
-	int		line_lenght;
+	int		line_len;
 	int		endian;
+	int		width;
+	int		height;
+}	t_img;
+
+typedef struct s_win {
+	void		*mlx;
+	void		*mlx_win;
 	t_cub		*cub;
 	t_player	*player;
-	
+	t_img		image;
+	t_img		texture[4];
 }	t_win;
 
 typedef struct s_rnd {
@@ -107,14 +113,15 @@ void	check_info(t_cub *cub);
 int		check_player(t_cub *cub);
 void	check_paths(t_cub *cub);
 void	count_cols(t_cub *cub);
-
+void	save_textures(t_win *wind);
 //MINIMAP
 void	print_minimap(t_cub *cub, t_win *wind);
 
 //RENDER
-void 	game(t_cub *cub, t_player *player);
+void game(t_cub *cub, t_player *player);
 int 	render(t_win *wind);
 void	my_mlx_pixel_put(t_win *wind, int x, int y, int color);
+void	 print_stripe(t_win *wind, t_rnd *rnd, int x);
 
 //MAP
 int		movements(int mov, t_win *wind);

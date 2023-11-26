@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:13:11 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 16:01:01 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:47:05 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_minimap_aux(t_cub *cub, t_win *wind, int x, int y, int color)
 		k = 0;
 		while (k < size)
 		{
-			my_mlx_pixel_put(wind->img, k + (x * size) + 10, j + (y * size) + 10, color);
+			my_mlx_pixel_put(wind->image.img, k + (x * size) + 10, j + (y * size) + 10, color);
 			k++;
 		}
 		j++;

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/26 20:11:13 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:37:44 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	ray_vars(t_rnd *rnd, t_player *ply, int x)
 	rnd->mapx = (int)ply->posx;
 	rnd->mapy = (int)ply->posy;
 	if (rnd->raydirx == 0)
-		rnd->delta_distx = 1e20;
+		rnd->delta_distx = 1e30;
 	else
 		rnd->delta_distx = 1 / rnd->raydirx;
 	if (rnd->raydiry == 0)	
-		rnd->delta_disty = 1e20;
+		rnd->delta_disty = 1e30;
 	else
 		rnd->delta_disty = 1 / rnd->raydiry;
 }
@@ -118,6 +118,9 @@ int render(t_win *wind)
 		print_stripe(wind, &rnd, x);
 		x++;
 	}
+	if (rnd.side == 0) 
+		printf("xoca x\n");
+		
 	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->image.img, 0, 0);
 	return (0);
 }

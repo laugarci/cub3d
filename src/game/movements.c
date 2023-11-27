@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/27 14:55:19 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:11:04 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,6 @@ void	do_right(t_player *player, t_cub *cub)
 
 int	movements(int mov, t_win *wind)
 {
-	int	x;
-	int	y;
-
-	x = wind->player->posx;
-	y = wind->player->posy;
 	if (mov == ESC)
 		close_window(wind);
 	if (mov == UP)

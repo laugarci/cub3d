@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:00:18 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/27 13:10:43 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:34:16 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,11 @@ int	check_texture(t_win *wind, t_img *text)
 
     text->img = mlx_xpm_file_to_image(wind->mlx, \
 			path, &text->width, &text->height);
-    printf("ancho %i, largo %i\n", text->width, text->height);
-    /*if (!text->img)
-	{
-		printf("hola\n");
+    //printf("ancho %i, largo %i\n", text->width, text->height);
+    if (!text->img)
 		return (1);
-	}
 	if (text->width != 64 || text->height != 64)
-	{
-		printf("hola1\n");
 		return (1);
-	}*/
 	text->addr = mlx_get_data_addr(text->img, &text->bits_per_pixel, &text->line_len, &text->endian);
 	if (!text->addr)
 		return (1);		

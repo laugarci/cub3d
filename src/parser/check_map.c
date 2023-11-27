@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 20:51:36 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:54:08 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	find_dir_player(t_cub *cub, t_player *player)
 {
 	player->posx = cub->player[0];
 	player->posy = cub->player[1];
-
+	
+	printf("la pos de x: %f, la pos de y: %f\n", player->posx, player->posy);
 	if (cub->p == 'N')
 	{
 		player->dirx = 0;

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:13:11 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/26 18:47:05 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:12:29 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_minimap(t_cub *cub, t_win *wind)
 	y = 0;
 	while (y < cub->rows)
 	{
-		if (!cub->map[x][y])
+		if (!cub->map[x])
 			break ;
 		x = 0;
 		while (x < cub->cols)

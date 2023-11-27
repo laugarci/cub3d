@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/27 12:37:44 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:11:29 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ray_vars(t_rnd *rnd, t_player *ply, int x)
 		rnd->delta_disty = 1e30;
 	else
 		rnd->delta_disty = 1 / rnd->raydiry;
+	//rnd->delta_distx = fabs(1 / rnd->raydirx);
+	//rnd->delta_disty = fabs(1 / rnd->raydiry);
 }
 
 void	find_side_dist(t_rnd *rnd, t_player *ply)
@@ -80,8 +82,13 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 			rnd->mapy += rnd->stepy;
 			rnd->side = 1;
 		}
-		if (cub->map[rnd->mapx][rnd->mapy] == '1')
+		
+		if (cub->map[rnd->mapy][rnd->mapx] == '1')
+		{
 			rnd->hit = 1;
+			printf("el side es %i\n", rnd->side);
+			printf("xoca a x: %i i y: %i\n", rnd->mapx, rnd->mapy);
+		}
 	}
 }
 
@@ -106,9 +113,9 @@ int render(t_win *wind)
 	t_rnd	rnd;
 	
 	x = 0;
-	wind->image.img = mlx_new_image(wind->mlx, WIDTH, HEIGHT);
-	wind->image.addr = mlx_get_data_addr(wind->image.img, &wind->image.bits_per_pixel, \
-		&wind->image.line_len, &wind->image.endian);
+	//wind->image.img = mlx_new_image(wind->mlx, WIDTH, HEIGHT);
+	//wind->image.addr = mlx_get_data_addr(wind->image.img, &wind->image.bits_per_pixel, \
+		//&wind->image.line_len, &wind->image.endian);
 	while (x < WIDTH)
 	{
 		ray_vars(&rnd, wind->player, x);
@@ -120,7 +127,7 @@ int render(t_win *wind)
 	}
 	if (rnd.side == 0) 
 		printf("xoca x\n");
-		
+
 	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->image.img, 0, 0);
 	return (0);
 }

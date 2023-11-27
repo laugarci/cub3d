@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/26 20:10:48 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:09:53 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ void game(t_cub *cub, t_player *player)
 	wind.image.height = HEIGHT;
 	wind.mlx = mlx_init();
 	wind.mlx_win = mlx_new_window(wind.mlx, wind.image.width, wind.image.height, "cub 3d besties");
+	wind.image.img = mlx_new_image(wind.mlx, WIDTH, HEIGHT);
+	wind.image.addr = mlx_get_data_addr(wind.image.img, &(wind.image.bits_per_pixel),
+			&(wind.image.line_len), &(wind.image.endian));
 	save_textures(&wind);
 	mlx_hook(wind.mlx_win, 2, 1L << 0, movements, &wind);
 	mlx_hook(wind.mlx_win, 17, 1L << 5, close_window, &wind);

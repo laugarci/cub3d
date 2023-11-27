@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_paths.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 20:24:07 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/27 10:24:05 by laugarci         ###   ########.fr       */
+/*   Created: 2023/11/27 10:15:25 by laugarci          #+#    #+#             */
+/*   Updated: 2023/11/27 10:20:52 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "libft.h"
 
-void	check_xpm(char *str)
+int	check_correct(char **map, int x, int y)
 {
-	int	len;
-
-	len = ft_strlen(str);
-	if (ft_strncmp(str + len - 4, ".xpm", 4))
-	{
-		printf("Error: invalid path for img\n");
-		exit(-1);
-	}
-}
-
-void	check_paths(t_cub *cub)
-{
-	check_xpm(cub->n);
-	check_xpm(cub->s);
-	check_xpm(cub->e);
-	check_xpm(cub->w);
+	if (x < 0 || y < 0)
+		return (0);
+	if (map[x][y] == '1')
+		return (0);
+	return (1);
 }

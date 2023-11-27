@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/26 20:21:35 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:20:47 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ray_vars(t_win *wind, t_rnd *rnd, t_player *ply, int x)
 		rnd->delta_distx = 1e20;
 	else
 		rnd->delta_distx = 1 / rnd->raydirx;
-	if (rnd->raydiry == 0)	
+	if (rnd->raydiry == 0)
 		rnd->delta_disty = 1e20;
 	else
 		rnd->delta_disty = 1 / rnd->raydiry;
@@ -65,8 +65,7 @@ void	find_side_dist(t_rnd *rnd, t_player *ply)
 void	ray_hit(t_cub *cub, t_rnd *rnd)
 {
 	rnd->hit = 0;
-	
- 	while (rnd->hit == 0)
+	while (rnd->hit == 0)
 	{
 		if (rnd->side_distx < rnd->side_disty)
 		{
@@ -87,27 +86,24 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 
 void	height_wall(t_win *wind, t_rnd *rnd)
 {
-
-	if (rnd->side == 0) 
+	if (rnd->side == 0)
 		rnd->perpwalldist = rnd->side_distx - rnd->delta_distx;
 	else
 		rnd->perpwalldist = rnd->side_disty - rnd->delta_disty;
 	rnd->line_height = (int)(wind->wind_y / rnd->perpwalldist);
-	
 	rnd->line_start = (wind->wind_y / 2) - (rnd->line_height / 2);
 	if (rnd->line_start < 0)
 		rnd->line_start = 0;
 	rnd->line_end = wind->wind_y - rnd->line_start;
 }
 
-void print_stripe(t_win *wind, t_rnd *rnd, int x)
+void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 {
-	int y;
-	int color;
+	int	y;
+	int	color;
 
 	color = 0xFFF0000;
 	y = 0;
-
 	while (y < wind->wind_y)
 	{
 		if (y < rnd->line_start)
@@ -126,11 +122,11 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 	my_mlx_pixel_put(wind, wind->player->posx, wind->player->posy, 0x0000000);
 }
 
-int render(t_win *wind)
+int	render(t_win *wind)
 {
 	int		x;
 	t_rnd	rnd;
-	
+
 	x = 0;
 	wind->img = mlx_new_image(wind->mlx, wind->wind_x, wind->wind_y);
 	wind->addr = mlx_get_data_addr(wind->img, &wind->bits_per_pixel, \
@@ -144,7 +140,6 @@ int render(t_win *wind)
 		print_stripe(wind, &rnd, x);
 		x++;
 	}
-	
 	print_minimap(wind->cub, wind);
 	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->img, 0, 0);
 	return (0);

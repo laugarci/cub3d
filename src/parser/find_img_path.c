@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 20:22:47 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:25:06 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*copy_path(char *map, int del)
 	return (tmp);
 }
 
-void find_path_to_img(char *map, char **path)
+void	find_path_to_img(char *map, char **path)
 {
 	int		i;
 	int		c;

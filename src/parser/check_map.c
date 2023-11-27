@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/26 17:38:02 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:23:29 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	find_player(t_cub *cub)
 {
 	int	i;
 	int	j;
-	int flag;
+	int	flag;
 
 	i = 0;
 	flag = 0;
@@ -54,7 +54,6 @@ void	find_dir_player(t_cub *cub, t_player *player)
 {
 	player->posx = cub->player[0];
 	player->posy = cub->player[1];
-
 	if (cub->p == 'N')
 	{
 		player->dirx = 0;
@@ -87,9 +86,9 @@ void	find_dir_player(t_cub *cub, t_player *player)
 
 void	check_margin(t_cub *cub)
 {
-	int i;
-	int j;
-	int zero;
+	int	i;
+	int	j;
+	int	zero;
 
 	i = 0;
 	zero = 0;
@@ -115,16 +114,16 @@ void	check_margin(t_cub *cub)
 
 void	check_playable(t_cub *cub)
 {
-	int i;
-	int j;
-	int zero;
+	int	i;
+	int	j;
+	int	zero;
 
 	i = 0;
 	zero = 0;
 	while (i < cub->rows)
 	{
 		j = 0;
-		while(cub->map[i][j])
+		while (cub->map[i][j])
 		{
 			if (cub->map[i][j] == '0')
 				zero = 1;
@@ -132,8 +131,8 @@ void	check_playable(t_cub *cub)
 		}
 		i++;
 	}
-//	if (zero == 0)
-//		invalid_map(cub);
+	if (zero == 0)
+		invalid_map(cub);
 }
 
 void	check_map(t_cub *cub, t_player *player)

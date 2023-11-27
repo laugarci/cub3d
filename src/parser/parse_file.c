@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 12:50:26 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:26:46 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	find_color(char *map, int color[3])
 	{
 		if (map[i] == ',' || map[i] == ' ' || map[i] == '\t')
 			i++;
-		if ((map[i] >= '0' && map[i] <= '9') || (map[i] == '-' && (map[i + 1] >= '0' && map[i + 1] <= '9')))
+		if ((map[i] >= '0' && map[i] <= '9')
+			|| (map[i] == '-' && (map[i + 1] >= '0' && map[i + 1] <= '9')))
 		{
 			c = 0;
 			if (map[i] == '-')
@@ -71,7 +72,7 @@ void	find_color(char *map, int color[3])
 
 int	all_found(t_cub *cub)
 {
-	if (cub->n == NULL || cub->s == NULL|| cub->w == NULL || cub->e == NULL)
+	if (cub->n == NULL || cub->s == NULL || cub->w == NULL || cub->e == NULL)
 		return (0);
 	else if (cub->f[0] == -1 || cub->f[1] == -1 || cub->f[2] == -1)
 		return (0);

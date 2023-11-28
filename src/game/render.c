@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 17:09:26 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:02:32 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 			rnd->mapy += rnd->stepy;
 			rnd->side = 1;
 		}
-		if (cub->map[rnd->mapy][rnd->mapx] == '1')
+		if (cub->map[rnd->mapx][rnd->mapy] == '1')
 			rnd->hit = 1;
 	}
 }

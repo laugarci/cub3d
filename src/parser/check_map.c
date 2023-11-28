@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/28 19:28:08 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/28 20:30:12 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ void	find_player(t_cub *cub)
 
 void	find_dir_player(t_cub *cub, t_player *player)
 {
-	player->posx = cub->player[0] + 0.5;
-	player->posy = cub->player[1] + 0.5;
+	player->posx = cub->player[1] + 0.5;
+	player->posy = cub->player[0] + 0.5;
 	
 	if (cub->p == 'W') //N
 	{

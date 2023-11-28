@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 13:13:47 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:14:51 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,11 @@
 # define LEFT 0
 # define DOWN 1
 # define RIGHT 2
+
+# define MOUSE_LEFT 1
+# define MOUSE_RIGHT 2
+
+# define SPEED 0.09
+# define TURN 0.05
 
 #endif

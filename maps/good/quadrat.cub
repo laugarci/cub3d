@@ -1,17 +1,12 @@
-   WE                            textures/wolfenstein/eagle.xpm 
-NO      textures/wolfenstein/grey_stone.xpm
 
+NO textures/test/north.xpm
+SO textures/test/south.xpm
+WE textures/test/weast.xpm
+EA textures/test/east.xpm
 
+C 53,41,34
+F 45,33,27
 
-SO textures/wolfenstein/red_brick.xpm
-
-F   69, 222, 199
-
-EA textures/wolfenstein/mossy.xpm
-
-
-
-C 235, 198, 52
 
 111111111111111111111111
 100000000000000000000001
@@ -19,7 +14,7 @@ C 235, 198, 52
 100000000000000000000001
 100000000000000000000001
 100000000000000000000001
-1000000000S0000000000001
+10000000000W000000000001
 100000000000000000000001
 100000000000000000000001
 1111111111111111111111111

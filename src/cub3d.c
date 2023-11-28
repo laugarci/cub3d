@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/26 20:08:32 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 17:42:16 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int	main(int ac, char **av)
 	count_cols(&cub);
 	print_info(&cub);
 	game(&cub, &player);
-	free_all(&cub);
+	//free_all(&cub);
 	return (0);
 }

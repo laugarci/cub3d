@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/26 20:08:38 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:18:07 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_cub
 	int		f[3];
 	int		c[3];
 	char	**map;
+	char	**map_aux;
 	char	**all;
 	int		player[2];
 	int		rows;
@@ -116,6 +117,7 @@ void	count_cols(t_cub *cub);
 void	save_textures(t_win *wind);
 //MINIMAP
 void	print_minimap(t_cub *cub, t_win *wind);
+void    print_help(t_win *wind, t_rnd *rnd);
 
 //RENDER
 void game(t_cub *cub, t_player *player);

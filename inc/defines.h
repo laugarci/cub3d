@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 15:14:51 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/28 19:31:04 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@
 
 # define CAM_UP		125
 # define CAM_DOWN	126
-# define CAM_RIGHT	124
-# define CAM_LEFT	123
+# define CAM_RIGHT	123
+# define CAM_LEFT	124
 
 # define UP 13
-# define LEFT 0
+# define LEFT 2
 # define DOWN 1
-# define RIGHT 2
+# define RIGHT 0
 
 # define MOUSE_LEFT 1
 # define MOUSE_RIGHT 2
 
-# define SPEED 0.09
+# define SPEED 0.10
 # define TURN 0.05
 
 #endif

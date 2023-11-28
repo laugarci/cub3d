@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 13:10:23 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:39:40 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,49 +54,25 @@ int	get_pix_text(t_img *img, int x, int y)
 	return (*(int *)pixel);
 }
 
-/*void print_stripe(t_win *wind, t_rnd *rnd, int x)
-{
-	int y;
-
-	y = 0;
-	
-	while (y < rnd->line_start)
-	{	
-		my_mlx_pixel_put(wind, x, y, 0xFF00FF); //magenta
-		y++;
-	}	
-	while (rnd->line_start <= y && y < rnd->line_end)
-	{
-		my_mlx_pixel_put(wind, x, y, 0xFFF700); //yellow
-		y++;
-	}
-	while (y < HEIGHT)
-	{
-		my_mlx_pixel_put(wind, x, y, 0xA2FE00 ); // red
-		y++;
-	}	
-}*/
-
-
-
 void print_stripe(t_win *wind, t_rnd *rnd, int x)
 {
-	int y;
-	int	n_text;
-	int	x_text;
+	int 	y;
+	int		n_text;
+	int		x_text;
 	float	step;
-	int		y_text;
+	float	y_text;
 	int		color;
+	//float	tex_pos;
+
 	
 	y = 0;
-
 	n_text = get_text_num(rnd);
 	x_text = find_x_onmap(wind, rnd);
 	step = (float)64 / rnd->line_height;
-	//printf("num text %i\n", n_text);
+	//tex_pos = (rnd->line_start - rnd->line_height / 2 + rnd->line_height / 2)  * step;
 
 	if(rnd->line_height >= HEIGHT)
-		y_text = step * (rnd->line_height - HEIGHT) / 2;
+		y_text = ((rnd->line_height - HEIGHT) / 2) * step;
 	else
 		y_text = 0;
 
@@ -104,7 +80,21 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 	{	
 		my_mlx_pixel_put(wind, x, y, 0xFF00FF); //magenta
 		y++;
-	}	
+	}
+	while (rnd->line_start <= y && y < rnd->line_end)
+	{
+		color = get_pix_text(&wind->texture[n_text], x_text, (int)y_text);
+		my_mlx_pixel_put(wind, x, y, color);
+		y_text = y_text + step;
+		y++;
+	}
+	while (y < HEIGHT)
+	{
+		my_mlx_pixel_put(wind, x, y, 0xFFF0000); // red
+		y++;
+	}
+}
+
 	/*while (rnd->line_start <= y && y < rnd->line_end)
 	{
 		if (n_text == 0)
@@ -118,20 +108,3 @@ void print_stripe(t_win *wind, t_rnd *rnd, int x)
 		my_mlx_pixel_put(wind, x, y, color);
 		y++;
 	}*/
-
-	while (rnd->line_start <= y && y < rnd->line_end)
-	{
-		color = get_pix_text(&wind->texture[n_text], x_text, y_text);
-		my_mlx_pixel_put(wind, x, y, color);
-		y_text = y_text + step;
-		y++;
-	}
-	
-	while (y < HEIGHT)
-	{
-		my_mlx_pixel_put(wind, x, y, 0xFFF0000); // red
-		y++;
-	}
-}
-
-

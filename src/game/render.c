@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/29 11:11:11 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:26:36 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ray_vars(t_rnd *rnd, t_player *ply, int x)
 		rnd->delta_disty = fabsf(1 / rnd->raydiry);
 }
 
-void	find_side_dist(t_rnd *rnd, t_player *ply)
+void	side_dist(t_rnd *rnd, t_player *ply)
 {
 	if (rnd->raydirx < 0)
 	{
@@ -75,7 +75,7 @@ void	ray_hit(t_cub *cub, t_rnd *rnd)
 	}
 }
 
-void	height_wall(t_rnd *rnd)
+void	wall_height(t_rnd *rnd)
 {
 	if (rnd->side == 0)
 		rnd->perpwalldist = fabsf(rnd->side_distx - rnd->delta_distx);
@@ -99,9 +99,9 @@ int	render(t_win *wind)
 	while (x < WIDTH)
 	{
 		ray_vars(&rnd, wind->player, x);
-		find_side_dist(&rnd, wind->player);
+		side_dist(&rnd, wind->player);
 		ray_hit(wind->cub, &rnd);
-		height_wall(&rnd);
+		wall_height(&rnd);
 		print_stripe(wind, &rnd, x);
 		x++;
 	}

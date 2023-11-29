@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/28 15:30:15 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:02:50 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	print_info(t_cub *cub)
 
 int	main(int ac, char **av)
 {
-	t_cub	cub;
+	t_cub		ub;
 	t_player	player;	
 
 	if (ac != 2)
 	{
 		printf("Error: invalid arguments.\n");
-		return(1);
+		return (1);
 	}
 	check_arg(av);
 	init_vars(&cub);

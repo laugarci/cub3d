@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 11:07:26 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:34:43 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,5 @@ int	movements(int mov, t_win *wind)
 		move_cam(wind->player, CAM_RIGHT);
 	if (mov == CAM_LEFT)
 		move_cam(wind->player, CAM_LEFT);
-	render(wind);
 	return (0);
 }

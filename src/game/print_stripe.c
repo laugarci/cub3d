@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 20:03:24 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:56:18 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	text_num(t_rnd *rnd)
 {
 	int	text;
 
-	if (rnd->side == 0 && rnd->raydirx < 0)
+	if (rnd->side == 1 && rnd->raydiry < 0)
 		text = 0;
-	else if (rnd->side == 0 && rnd->raydirx > 0)
-		text = 1;
 	else if (rnd->side == 1 && rnd->raydiry > 0)
+		text = 1;
+	else if (rnd->side == 0 && rnd->raydirx > 0)
 		text = 2;
 	else
 		text = 3;

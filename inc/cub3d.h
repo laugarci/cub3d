@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 16:18:04 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:29:39 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct s_cub
 	int		y;
 	int		app_col;
 	int		colors[4];
-	
 }			t_cub;
 
 typedef struct s_player

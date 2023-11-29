@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:30:34 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:32:06 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	close_window(t_win *wind)
 	mlx_destroy_window(wind->mlx, wind->mlx_win);
 	free_all(wind->cub);
 	exit (0);
-	return(0);
+	return (0);
 }
 
 void	game(t_cub *cub, t_player *player)

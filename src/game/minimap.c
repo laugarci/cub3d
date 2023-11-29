@@ -6,20 +6,20 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:13:11 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/28 20:14:40 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:10:27 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	print_minimap_aux(t_cub *cub, t_win *wind, int x, int y, int color)
+void	print_minimap_aux(t_win *wind, int x, int y, int color)
 {
 	int	j;
 	int	k;
 	int	size;
 
 	size = 8;
-	if (cub->rows * cub->cols > 1500)
+	if (wind->cub->rows * wind->cub->cols > 1500)
 		size = 4;
 	j = 0;
 	while (j < size)
@@ -56,8 +56,8 @@ void	print_minimap(t_cub *cub, t_win *wind)
 		while (x < cub->cols)
 		{
 			if (cub->map[y][x] == '1')
-				print_minimap_aux(cub, wind, x, y, 0xFFFFFF);
-			print_minimap_aux(cub, wind, (int)wind->player->posx, \
+				print_minimap_aux(wind, x, y, 0xFFFFFF);
+			print_minimap_aux(wind, (int)wind->player->posx, \
 					(int)wind->player->posy, 0xFF00FF);
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:06:40 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:08:01 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "defines.h"
-# include "../mlx/mlx.h"
 # include <math.h>
 # include <string.h>
+# include "defines.h"
+# include "../mlx/mlx.h"
 # include "../get_next_line/get_next_line.h"
 
 typedef struct s_cub

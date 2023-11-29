@@ -6,11 +6,20 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:15:25 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:03:22 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:08:41 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	my_mlx_pixel_put(t_win *wind, int x, int y, int color)
+{
+	int	*img;
+
+	img = (int *)wind->image.addr;
+	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
+		img[x + WIDTH * y] = color;
+}
 
 int	check_correct(char **map, int x, int y)
 {

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:02:50 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:05:59 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_info(t_cub *cub)
 
 int	main(int ac, char **av)
 {
-	t_cub		ub;
+	t_cub		cub;
 	t_player	player;	
 
 	if (ac != 2)

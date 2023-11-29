@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:01:33 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:06:40 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void			game(t_cub *cub, t_player *player);
 int				render(t_win *wind);
 void			print_stripe(t_win *wind, t_rnd *rnd, int x);
 unsigned int	rgb_to_hex(int r, int g, int b);
+void			my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 
 //MAP
 int				movements(int mov, t_win *wind);

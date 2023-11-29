@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 10:14:36 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:41:44 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	count_lines(char *path)
 			break ;
 		if (ft_strncmp(line, "\n", 1))
 			i++;
+		free(line);
 	}
 	if (close(fd) < 0)
 		exit(-1);

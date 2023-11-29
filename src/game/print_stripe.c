@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/29 10:56:18 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:17:02 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	x_on_text(t_win *wind, t_rnd *rnd)
 	else
 		x_map = wind->player->posx + rnd->perpwalldist * rnd->raydirx;
 	x_map = x_map - floor((x_map));
-	x_text = (int)(x_map * 128);
+	x_text = (int)(x_map * IMAGE);
 	if (rnd->side == 0 && rnd->raydirx < 0)
-		x_text = 128 - x_text - 1;
+		x_text = IMAGE - x_text - 1;
 	else if (rnd->side == 1 && rnd->raydiry > 0)
-		x_text = 128 - x_text - 1;
+		x_text = IMAGE - x_text - 1;
 	return (x_text);
 }
 
@@ -82,7 +82,7 @@ void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 	int		color;
 
 	y = 0;
-	step = (float)128 / rnd->line_height;
+	step = (float)IMAGE / rnd->line_height;
 	x_text = x_on_text(wind, rnd);
 	y_text = (int)y_init_on_text(rnd, step);
 	color = rgb_to_hex(wind->cub->c[0], wind->cub->c[1], wind->cub->c[2]);

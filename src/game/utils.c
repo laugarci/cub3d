@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:15:25 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:08:41 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:30:55 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_correct(char **map, int x, int y)
 {
 	if (x < 0 || y < 0)
 		return (0);
-	if (map[y][x] == '1')
+	if (map[(int)y][(int)x] == '1')
 		return (0);
 	return (1);
 }

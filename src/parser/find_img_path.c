@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/22 20:22:47 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 14:41:46 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*copy_path(char *map, int del)
 	return (tmp);
 }
 
-void find_path_to_img(char *map, char **path)
+void	find_path_to_img(char *map, char **path)
 {
 	int		i;
 	int		c;
@@ -38,35 +38,17 @@ void find_path_to_img(char *map, char **path)
 	c = 0;
 	map += 3;
 	if (*path != NULL)
+		print_and_exit_errors("too much paths");
+	if (map[i] == ' ' || map[i] == '\t')
 	{
-		printf("Error: too much paths\n");
-		exit(-1);
+		while (map[i] == ' ' || map[i] == '\t')
+			i++;
 	}
-	while (map[i])
+	c = 0;
+	while (map[i] && map[i] != ' ' && map[i] != '\t' && map[i] != '\n')
 	{
-		if (map[i] == '\n')
-			break ;
-		if (map[i] == ' ' || map[i] == '\t')
-		{
-			while (map[i] == ' ' || map[i] == '\t')
-				i++;
-		}
-		else
-		{
-			c = 0;
-			while (map[i] && map[i] != ' '
-				&& map[i] != '\t' && map[i] != '\n')
-			{
-				c++;
-				i++;
-			}
-			*path = copy_path(&map[i - c], c);
-			break ;
-		}
+		c++;
+		i++;
 	}
-	if (*path == NULL)
-	{
-		printf("Error: path to image not found, please, check your file\n");
-		exit(-1);
-	}
+	*path = copy_path(&map[i - c], c);
 }

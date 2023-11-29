@@ -6,18 +6,25 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:31:32 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 10:42:31 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:03:44 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
 
+int	find_player_check(char c)
+{
+	if (c == 'S' || c == 'N' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
+}
+
 void	find_player(t_cub *cub)
 {
 	int	i;
 	int	j;
-	int flag;
+	int	flag;
 
 	i = 0;
 	flag = 0;
@@ -26,15 +33,11 @@ void	find_player(t_cub *cub)
 		j = 0;
 		while (cub->map[i][j])
 		{
-			if (cub->map[i][j] == 'S' || cub->map[i][j] == 'N'
-				|| cub->map[i][j] == 'E' || cub->map[i][j] == 'W')
+			if (find_player_check(cub->map[i][j]))
 			{
 				flag++;
 				if (flag > 1)
-				{
-					printf("Error: too much players\n");
-					exit(-1);
-				}
+					print_and_exit_errors("too much players");
 				cub->player[0] = i;
 				cub->player[1] = j;
 				cub->p = cub->map[i][j];
@@ -44,53 +47,13 @@ void	find_player(t_cub *cub)
 		}
 		i++;
 	}
-	if (flag > 1)
-	{
-		printf("Error: too much players\n");
-		exit(-1);
-	}
-}
-
-void	find_dir_player(t_cub *cub, t_player *player)
-{
-	player->posx = cub->player[1] + 0.5;
-	player->posy = cub->player[0] + 0.5;
-	
-	if (cub->p == 'N') //N
-	{
-		player->dirx = 0;
-		player->diry = -1;
-		player->planex = 0.66;
-		player->planey = 0;
-	}
-	else if (cub->p == 'S') //S
-	{
-		player->dirx = 0;
-		player->diry = 1;
-		player->planex = -0.66;
-		player->planey = 0;
-	} 
-	else if (cub->p == 'E') //E
-	{
-		player->dirx = 1;
-		player->diry = 0;
-		player->planex = 0;
-		player->planey = 0.66;
-	}
-	else if (cub->p == 'W') //W
-	{
-		player->dirx = -1;
-		player->diry =  0;
-		player->planex = 0;
-		player->planey = -0.66;
-	}
 }
 
 void	check_margin(t_cub *cub)
 {
-	int i;
-	int j;
-	int zero;
+	int	i;
+	int	j;
+	int	zero;
 
 	i = 0;
 	zero = 0;
@@ -116,16 +79,16 @@ void	check_margin(t_cub *cub)
 
 void	check_playable(t_cub *cub)
 {
-	int i;
-	int j;
-	int zero;
+	int	i;
+	int	j;
+	int	zero;
 
 	i = 0;
 	zero = 0;
 	while (i < cub->rows)
 	{
 		j = 0;
-		while(cub->map[i][j])
+		while (cub->map[i][j])
 		{
 			if (cub->map[i][j] == '0')
 				zero = 1;

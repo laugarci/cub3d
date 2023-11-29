@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:00:06 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 12:34:27 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:45:20 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int	check_player(t_cub *cub)
 {
 	if (cub->player[0] == -1 && cub->player[1] == -1)
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
 int	check_nums(t_cub *cub)

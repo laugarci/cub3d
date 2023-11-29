@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:41:44 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:02:21 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	count_lines(char *path)
 
 void	copy_line(char *line, char ***map, int row)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(line);
 	(*map)[row] = malloc(sizeof(char) * len + 1);
@@ -63,35 +63,28 @@ void	copy_line(char *line, char ***map, int row)
 void	open_map(char *path, t_cub *cub)
 {
 	int		fd;
-	int		i;
 	int		count;
 	char	*line;
 
-	i = 0;
 	count = count_lines(path);
 	cub->all = malloc(sizeof(char *) * count);
 	if (!cub->all)
-	{
-		printf("Malloc error\n");
 		exit(-1);
-	}
 	fd = open_file(path);
-	while (42)
+	line = get_next_line(fd);
+	while (line != NULL)
 	{
-		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
-		else if (!ft_strncmp(line, "\n", 1))
+		if (!ft_strncmp(line, "\n", 1))
 			free(line);
 		else
 		{
-			copy_line(line, &(cub->all), i);
-			i++;
+			copy_line(line, &(cub->all), cub->total_len);
+			cub->total_len++;
 			free(line);
 		}
+		line = get_next_line(fd);
 	}
-	cub->total_len = i;
-	cub->rows = i - 6;
+	cub->rows = cub->total_len - 6;
 	close(fd);
 }
 

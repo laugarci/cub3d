@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/29 13:01:58 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/29 18:26:58 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_FILES = cub3d.c \
 			game/cam_movements.c \
 			game/utils.c \
 			parser/position.c \
+			game/mouse_movement.c \
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

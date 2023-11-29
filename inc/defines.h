@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/28 20:29:36 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:51:52 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@
 # define SPEED 0.10
 # define TURN 0.05
 
-# define IMAGE 90
+# define IMAGE 64
 
 #endif

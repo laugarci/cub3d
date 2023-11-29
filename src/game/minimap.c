@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:13:11 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:10:27 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:14:16 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_minimap(t_cub *cub, t_win *wind)
 			if (cub->map[y][x] == '1')
 				print_minimap_aux(wind, x, y, 0xFFFFFF);
 			print_minimap_aux(wind, (int)wind->player->posx, \
-					(int)wind->player->posy, 0xFF00FF);
+				(int)wind->player->posy, 0xFF00FF);
 			x++;
 		}
 		y++;

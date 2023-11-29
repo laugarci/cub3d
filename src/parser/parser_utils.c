@@ -6,11 +6,17 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/23 12:46:38 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:14:22 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	print_and_exit_errors(char *str)
+{
+	printf("Error: %s\n", str);
+	exit(1);
+}
 
 void	init_vars(t_cub *cub)
 {

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:24:07 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/24 14:44:16 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:04:08 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	check_xpm(char *str)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(str);
 	if (ft_strncmp(str + len - 4, ".xpm", 4))

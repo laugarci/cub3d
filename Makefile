@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/28 16:05:29 by julolle-         ###   ########.fr        #
+#    Updated: 2023/11/29 13:01:58 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC_FILES = cub3d.c \
 			game/movements.c \
 			game/print_stripe.c \
 			game/cam_movements.c \
-			game/utils.c
+			game/utils.c \
+			parser/position.c \
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 12:26:02 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/29 13:01:13 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int				check_player(t_cub *cub);
 void			check_paths(t_cub *cub);
 void			count_cols(t_cub *cub);
 void			save_textures(t_win *wind);
+void			print_and_exit_errors(char *str);
+void			find_dir_player(t_cub *cub, t_player *player);
 
 //MINIMAP
 void			print_minimap(t_cub *cub, t_win *wind);

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 16:30:32 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:41:55 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,14 @@ void			check_paths(t_cub *cub);
 void			count_cols(t_cub *cub);
 void			save_textures(t_win *wind);
 void			print_and_exit_errors(char *str);
+
+//MOVEMENTS
 void			find_dir_player(t_cub *cub, t_player *player);
+void			move_cam_left(t_player *player, float olddirx, float oldplanex);
+void			move_cam_right(t_player *player, float olddirx,	float oldplanex);
+int				move_mouse(t_win *wind);
+int				movements(int mov, t_win *wind);
+void			move_cam(t_player *player, int mov);
 
 //MINIMAP
 void			print_minimap(t_cub *cub, t_win *wind);
@@ -130,9 +137,7 @@ unsigned int	rgb_to_hex(int r, int g, int b);
 void			my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 
 //MAP
-int				movements(int mov, t_win *wind);
 int				close_window(t_win *wind);
-void			move_cam(t_player *player, int mov);
 int				check_correct(char **map, int x, int y);
 
 #endif

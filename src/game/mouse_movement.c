@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:23:21 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 19:58:03 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:56:15 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	move_mouse(t_win *wind)
 
 	mlx_mouse_get_pos(wind->mlx_win, &x, &y);
 	if (x > WIDTH || y > HEIGHT || x < 0 || y < 0)
-		mlx_mouse_move(wind->mlx_win, WIDTH / 2, HEIGHT / 2);
+		return (0);
 	else if ((WIDTH / 2 - x) < -MOUSE_MARGIN)
 		move_cam_left(wind->player, wind->player->dirx, wind->player->planex);
 	else if ((HEIGHT / 2 - x) > MOUSE_MARGIN)

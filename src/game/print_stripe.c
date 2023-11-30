@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 14:44:07 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:43:18 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ int	pix_text(t_win *wind, t_rnd *rnd, int x, int y)
 		return (wind->cub->colors[n_txt]);
 }
 
-int	x_text(t_win *wind, t_rnd *rnd)
+float	x_text(t_win *wind, t_rnd *rnd)
 {
 	float	x_map;
-	int		x_text;
+	float	x_text;
 
 	if (rnd->side == 0)
 		x_map = wind->player->posy + rnd->perpwalldist * rnd->raydiry;
 	else
 		x_map = wind->player->posx + rnd->perpwalldist * rnd->raydirx;
 	x_map = x_map - floor((x_map));
-	x_text = (int)(x_map * IMAGE);
+	x_text = (x_map * IMAGE);
 	if (rnd->side == 0 && rnd->raydirx < 0)
 		x_text = IMAGE - x_text - 1;
 	else if (rnd->side == 1 && rnd->raydiry > 0)
@@ -92,7 +92,7 @@ void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 	}
 	while (y < rnd->line_end)
 	{
-		color = pix_text(wind, rnd, x_text(wind, rnd), y_text);
+		color = pix_text(wind, rnd, (int)x_text(wind, rnd), (int)y_text);
 		my_mlx_pixel_put(wind, x, y, color);
 		y_text = y_text + ((float)IMAGE / rnd->line_height);
 		y++;

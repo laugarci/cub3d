@@ -1,9 +1,9 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
-EA textures/test/east.xpm
-
+NO textures/qr2.xpm
+SO textures/wolf1.xpm
+WE textures/wolf2.xpm
+EA textures/wolf3.xpm
+NO textures/qr2.xpm
+SO textures/wolf1.xpm
 F 20,20,20
 C 200,200,200
 

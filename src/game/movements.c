@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 14:37:54 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:32:56 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,14 @@ void	do_right(t_player *player, t_cub *cub)
 		player->direction = 1;
 }
 
-int	movements(int mov, t_win *wind)
+void	move(t_win *wind)
 {
-	if (mov == ESC)
-		close_window(wind);
-	if (mov == UP)
+	if (wind->player->up)
 		do_up(wind->player, wind->cub);
-	if (mov == DOWN)
+	if (wind->player->down)
 		do_down(wind->player, wind->cub);
-	if (mov == LEFT)
+	if (wind->player->left)
 		do_left(wind->player, wind->cub);
-	if (mov == RIGHT)
+	if (wind->player->right)
 		do_right(wind->player, wind->cub);
-	if (mov == CAM_RIGHT)
-		move_cam(wind->player, CAM_RIGHT);
-	if (mov == CAM_LEFT)
-		move_cam(wind->player, CAM_LEFT);
-	return (0);
 }

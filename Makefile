@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/30 14:50:55 by julolle-         ###   ########.fr        #
+#    Updated: 2023/11/30 20:31:44 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC_FILES = cub3d.c \
 			game/render.c \
 			game/minimap.c \
 			game/movements.c \
+			game/movements_aux.c \
 			game/print_stripe.c \
 			game/cam_movements.c \
 			game/utils.c \

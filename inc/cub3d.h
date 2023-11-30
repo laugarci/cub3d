@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 14:50:31 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:29:08 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ typedef struct s_cub
 
 typedef struct s_player
 {
+	int		up; //
+	int		down;//
+	int		left;//
+	int		right;//
+	int		cam_left;
+	int		cam_right;
 	float	posx;
 	float	posy;
 	float	dirx;
@@ -100,7 +106,7 @@ typedef struct s_rnd
 
 //PARSER
 void		check_arg(char **av);
-void		init_vars(t_cub *cub);
+void		init_vars(t_cub *cub, t_player *player);
 void		open_map(char *path, t_cub *cub);
 void		free_map(t_cub *cub);
 void		check_map(t_cub *cub, t_player *player);
@@ -125,8 +131,10 @@ void		move_cam_left(t_player *player, float oldirx, float oldplanex);
 void		move_cam_right(t_player *player, float olddirx,	float oldplanex);
 int			move_mouse(t_win *wind);
 int			movements(int mov, t_win *wind);
-void		move_cam(t_player *player, int mov);
+void		move_cam(t_player *player);
 void		put_player(t_player *player, t_win *wind);
+int			stop_movement(int mov, t_win *wind);
+void		move(t_win *wind);
 
 //MINIMAP
 void		print_minimap(t_cub *cub, t_win *wind);

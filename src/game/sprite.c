@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 13:45:51 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 14:05:32 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:57:10 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,10 @@
 
 void	put_player(t_player *player, t_win *wind)
 {
-	int pxl;
-
-	pxl = 68;
-	if (player->direction == 0)
-		player->file = mlx_xpm_file_to_image(wind->mlx,
-				"./sprites/down.xpm", &pxl, &pxl);
-	else if (player->direction == 1)
-		player->file = mlx_xpm_file_to_image(wind->mlx,
-				"./sprites/up.xpm", &pxl, &pxl);
+	if (player->direction == 1)
+		mlx_put_image_to_window(wind->mlx, wind->mlx_win, player->file[0], \
+			(WIDTH / 2) - 330, (HEIGHT - 550));
 	else if (player->direction == 2)
-		player->file = mlx_xpm_file_to_image(wind->mlx,
-				"./sprites/left.xpm", &pxl, &pxl);
-	else if (player->direction == 3)
-		player->file = mlx_xpm_file_to_image(wind->mlx,
-				"./sprites/right.xpm", &pxl, &pxl);
-	mlx_put_image_to_window(wind->mlx, wind->mlx_win,
-		player->file, (pxl * HEIGHT), (pxl * (WIDTH / 2)));
+		mlx_put_image_to_window(wind->mlx, wind->mlx_win, player->file[1], \
+			(WIDTH / 2) - 330, (HEIGHT - 550));
 }

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 13:54:43 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:50:31 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_player
 	float	planex;
 	float	planey;
 	int		direction;
-	char	*file;
+	char	*file[2];
 }	t_player;
 
 typedef struct s_img
@@ -116,7 +116,6 @@ void		check_info(t_cub *cub);
 int			check_player(t_cub *cub);
 void		check_paths(t_cub *cub);
 void		count_cols(t_cub *cub);
-void		save_textures(t_win *wind);
 void		print_and_exit_errors(char *str);
 void		check_paths_to_img(t_cub *cub);
 
@@ -139,6 +138,7 @@ int			render(t_win *wind);
 void		print_stripe(t_win *wind, t_rnd *rnd, int x);
 int			rgb_to_hex(int r, int g, int b);
 void		my_mlx_pixel_put(t_win *wind, int x, int y, int color);
+void		save_images(t_win *wind);
 
 //MAP
 int			close_window(t_win *wind);

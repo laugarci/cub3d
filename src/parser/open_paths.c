@@ -6,15 +6,16 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 10:37:07 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 11:10:51 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:07:34 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		open_path(char *str)
+int	open_path(char *str)
 {
-	int fd;
+	int	fd;
+
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 	{

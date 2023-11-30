@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 11:10:57 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:33:28 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_cub
 	int		total_len;
 	int		x;
 	int		y;
-	int		app_col[5];
+	int		app_col[4];
 	int		colors[4];
 }			t_cub;
 
@@ -97,48 +97,48 @@ typedef struct s_rnd
 }	t_rnd;
 
 //PARSER
-void			check_arg(char **av);
-void			init_vars(t_cub *cub);
-void			open_map(char *path, t_cub *cub);
-void			free_map(t_cub *cub);
-void			check_map(t_cub *cub, t_player *player);
-void			parse_file(t_cub *cub);
-void			find_path_to_img(char *map, char **path);
-char			**copy_map(int init, t_cub *cub);
-void			free_all(t_cub *cub);
-void			free_matrix(char **matrix, int len);
-void			invalid_map(t_cub *cub);
-int				check_one(char *str);
-int				check_char(char c);
-void			check_info(t_cub *cub);
-int				check_player(t_cub *cub);
-void			check_paths(t_cub *cub);
-void			count_cols(t_cub *cub);
-void			save_textures(t_win *wind);
-void			print_and_exit_errors(char *str);
-void			check_paths_to_img(t_cub *cub);
+void		check_arg(char **av);
+void		init_vars(t_cub *cub);
+void		open_map(char *path, t_cub *cub);
+void		free_map(t_cub *cub);
+void		check_map(t_cub *cub, t_player *player);
+void		parse_file(t_cub *cub);
+void		find_path_to_img(char *map, char **path);
+char		**copy_map(int init, t_cub *cub);
+void		free_all(t_cub *cub);
+void		free_matrix(char **matrix, int len);
+void		invalid_map(t_cub *cub);
+int			check_one(char *str);
+int			check_char(char c);
+void		check_info(t_cub *cub);
+int			check_player(t_cub *cub);
+void		check_paths(t_cub *cub);
+void		count_cols(t_cub *cub);
+void		save_textures(t_win *wind);
+void		print_and_exit_errors(char *str);
+void		check_paths_to_img(t_cub *cub);
 
 //MOVEMENTS
-void			find_dir_player(t_cub *cub, t_player *player);
-void			move_cam_left(t_player *player, float olddirx, float oldplanex);
-void			move_cam_right(t_player *player, float olddirx,	float oldplanex);
-int				move_mouse(t_win *wind);
-int				movements(int mov, t_win *wind);
-void			move_cam(t_player *player, int mov);
+void		find_dir_player(t_cub *cub, t_player *player);
+void		move_cam_left(t_player *player, float oldirx, float oldplanex);
+void		move_cam_right(t_player *player, float olddirx,	float oldplanex);
+int			move_mouse(t_win *wind);
+int			movements(int mov, t_win *wind);
+void		move_cam(t_player *player, int mov);
 
 //MINIMAP
-void			print_minimap(t_cub *cub, t_win *wind);
-int				check_dec(float x, float y);
+void		print_minimap(t_cub *cub, t_win *wind);
+int			check_dec(float x, float y);
 
 //RENDER
-void			game(t_cub *cub, t_player *player);
-int				render(t_win *wind);
-void			print_stripe(t_win *wind, t_rnd *rnd, int x);
-unsigned int	rgb_to_hex(int r, int g, int b);
-void			my_mlx_pixel_put(t_win *wind, int x, int y, int color);
+void		game(t_cub *cub, t_player *player);
+int			render(t_win *wind);
+void		print_stripe(t_win *wind, t_rnd *rnd, int x);
+int			rgb_to_hex(int r, int g, int b);
+void		my_mlx_pixel_put(t_win *wind, int x, int y, int color);
 
 //MAP
-int				close_window(t_win *wind);
-int				check_correct(char **map, int x, int y);
+int			close_window(t_win *wind);
+int			check_correct(char **map, int x, int y);
 
 #endif

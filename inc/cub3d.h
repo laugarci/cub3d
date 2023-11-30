@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 18:41:55 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 11:10:57 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_cub
 	int		total_len;
 	int		x;
 	int		y;
-	int		app_col;
+	int		app_col[5];
 	int		colors[4];
 }			t_cub;
 
@@ -116,6 +116,7 @@ void			check_paths(t_cub *cub);
 void			count_cols(t_cub *cub);
 void			save_textures(t_win *wind);
 void			print_and_exit_errors(char *str);
+void			check_paths_to_img(t_cub *cub);
 
 //MOVEMENTS
 void			find_dir_player(t_cub *cub, t_player *player);

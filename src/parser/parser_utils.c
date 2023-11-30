@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 13:14:22 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 10:41:51 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	init_vars(t_cub *cub)
 	cub->c[2] = -1;
 	cub->player[0] = -1;
 	cub->player[1] = -1;
+	cub->app_col[0] = 0;
+	cub->app_col[1] = 0;
+	cub->app_col[2] = 0;
+	cub->app_col[3] = 0;
 }
 
 void	free_matrix(char **matrix, int len)

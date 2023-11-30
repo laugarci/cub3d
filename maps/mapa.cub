@@ -1,7 +1,7 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/weast.xpm
-EA textures/test/east.xpm
+NO textures/north.xpm
+SO textures/south.xpm
+WE textures/weast.xpm
+EA textures/east.xpm
 
 F 11,169,20
 C 153,204,255

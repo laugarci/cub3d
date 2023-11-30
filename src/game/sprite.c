@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 12:49:40 by laugarci         ###   ########.fr       */
+/*   Created: 2023/11/30 13:45:51 by laugarci          #+#    #+#             */
+/*   Updated: 2023/11/30 14:57:10 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	put_player(t_player *player, t_win *wind)
 {
-	t_cub		cub;
-	t_player	player;	
-
-	if (ac != 2)
-	{
-		printf("Error: invalid arguments.\n");
-		return (1);
-	}
-	check_arg(av);
-	init_vars(&cub);
-	open_map(av[1], &cub);
-	parse_file(&cub);
-	check_info(&cub);
-	check_map(&cub, &player);
-	check_paths(&cub);
-	check_paths_to_img(&cub);
-	count_cols(&cub);
-	game(&cub, &player);
-	free_all(&cub);
-	return (0);
+	if (player->direction == 1)
+		mlx_put_image_to_window(wind->mlx, wind->mlx_win, player->file[0], \
+			(WIDTH / 2) - 330, (HEIGHT - 550));
+	else if (player->direction == 2)
+		mlx_put_image_to_window(wind->mlx, wind->mlx_win, player->file[1], \
+			(WIDTH / 2) - 330, (HEIGHT - 550));
 }

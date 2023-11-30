@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/29 16:41:31 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:33:06 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@ int	pix_text(t_win *wind, t_rnd *rnd, int x, int y)
 {
 	char	*pixel;
 	t_img	*img;
+	int		n_txt;
 
-//	if (wind->cub->app_col == 1)
-//	{
-		img = &wind->texture[txt_n(rnd)];
+	n_txt = txt_n(rnd);
+
+	if (wind->cub->app_col[n_txt] == 0)
+	{
+		img = &wind->texture[n_txt];
 		pixel = img->addr + (y * img->line_len + x * (img->bits_per_pixel / 8));
 		return (*(int *)pixel);
-//	}
-//	else
-///	{
-	//	return (wind->cub->colors[txt_n(rnd)]);
-//	}
+	}
+	else
+		return (wind->cub->colors[n_txt]);
 }
 
 int	x_text(t_win *wind, t_rnd *rnd)

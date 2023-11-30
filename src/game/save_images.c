@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:00:18 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 15:42:47 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:01:21 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	init_text_colors(t_cub *cub)
 
 void	save_sprite_char(t_win *wind, t_player *player)
 {
-	int pxl;
-	
+	int	pxl;
+
 	player->file[0] = mlx_xpm_file_to_image(wind->mlx, \
 		"./sprites/char_N_1.xpm", &pxl, &pxl);
 	player->file[1] = mlx_xpm_file_to_image(wind->mlx, \
@@ -60,8 +60,8 @@ void	save_images(t_win *wind)
 		if (wind->cub->app_col[i] != 1)
 		{
 			text = &wind->texture[i];
-			text->img = mlx_xpm_file_to_image(wind->mlx, find_path(wind->cub, i), \
-				&text->width, &text->height);
+			text->img = mlx_xpm_file_to_image(wind->mlx, \
+				find_path(wind->cub, i), &text->width, &text->height);
 			if (!text->img || text->width != IMAGE || text->height != IMAGE)
 				wind->cub->app_col[i] = 1;
 			text->addr = mlx_get_data_addr(text->img, &text->bits_per_pixel, \

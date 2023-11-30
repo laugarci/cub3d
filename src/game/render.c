@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 18:50:54 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:00:39 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,12 @@ void	wall_height(t_rnd *rnd)
 		rnd->perpwalldist = fabsf(rnd->side_disty - rnd->delta_disty);
 	rnd->line_height = (int)(HEIGHT / rnd->perpwalldist);
 	rnd->line_start = (HEIGHT / 2) - (rnd->line_height / 2);
+	rnd->line_start = (HEIGHT / 2) - (rnd->line_height / 2);
 	if (rnd->line_start < 0)
 		rnd->line_start = 0;
-	rnd->line_end = rnd->line_height / 2 + (HEIGHT / 2);
-	//if (rnd->line_end >= HEIGHT)
-		//rnd->line_end = HEIGHT - 1;
-	//if (rnd->line_start < 0)
-		//rnd->line_end = HEIGHT - rnd->line_start;
-
-	  rnd->line_start = -rnd->line_height / 2 + HEIGHT / 2;
-      if(rnd->line_start < 0) 
-	  	rnd->line_start = 0;
-      rnd->line_end = rnd->line_height / 2 + HEIGHT  / 2;
-      if(rnd->line_end >= HEIGHT) 
-	  	rnd->line_end = HEIGHT - 1;	
+	rnd->line_end = (HEIGHT / 2) + (rnd->line_height / 2);
+	if (rnd->line_end >= HEIGHT)
+		rnd->line_end = HEIGHT - 1;
 }
 
 int	render(t_win *wind)
@@ -105,7 +97,6 @@ int	render(t_win *wind)
 	t_rnd	rnd;
 
 	x = 0;
-	//while (x < 2)
 	while (x < WIDTH)
 	{
 		ray_vars(&rnd, wind->player, x);

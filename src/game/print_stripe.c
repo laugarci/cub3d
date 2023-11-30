@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 18:52:52 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:03:21 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	pix_text(t_win *wind, t_rnd *rnd, int x, int y)
 	int		n_txt;
 
 	n_txt = txt_n(rnd);
-
 	if (wind->cub->app_col[n_txt] == 0)
 	{
 		img = &wind->texture[n_txt];
@@ -48,7 +47,7 @@ int	pix_text(t_win *wind, t_rnd *rnd, int x, int y)
 int	x_text(t_win *wind, t_rnd *rnd)
 {
 	float	x_map;
-	float		x_text;
+	float	x_text;
 
 	if (rnd->side == 0)
 		x_map = wind->player->posy + rnd->perpwalldist * rnd->raydiry;
@@ -74,46 +73,31 @@ int	y_init_on_text(t_rnd *rnd)
 	else
 		y_text = 0;
 	return (y_text);
-	
-	/*float step;
-	float tex_pos;
-	int		tex_y;
-	
-	step = 1.0 * IMAGE / rnd->line_height;
-    tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
-    tex_y = (int)tex_pos & (IMAGE - 1);
-    tex_pos += step;
-	return */
 }
 
 void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 {
 	int		y;
-	//float	y_text;
 	int		color;
-	float step;
-	float tex_pos;
+	float	step;
+	float	tex_pos;
 	int		tex_y;
 
 	y = 0;
-	//y_text = y_init_on_text(rnd);
-
-	//printf("y_text inicial %f\n", y_text);
 	color = rgb_to_hex(wind->cub->c[0], wind->cub->c[1], wind->cub->c[2]);
 	while (y < rnd->line_start)
 	{
 		my_mlx_pixel_put(wind, x, y, color);
 		y++;
 	}
-		step = (float)IMAGE / rnd->line_height;
-   		tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
+	step = (float)IMAGE / rnd->line_height;
+	tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
 	while (y < rnd->line_end)
 	{
-   		tex_y = (int)tex_pos & (IMAGE - 1);
-		tex_pos += step;
+		tex_y = (int)tex_pos & (IMAGE - 1);
+		tex_pos = tex_pos + step;
 		color = pix_text(wind, rnd, x_text(wind, rnd), (int)tex_y);
 		my_mlx_pixel_put(wind, x, y, color);
-		//y_text = y_text + ((float)IMAGE / rnd->line_height);
 		y++;
 	}
 	color = rgb_to_hex(wind->cub->f[0], wind->cub->f[1], wind->cub->f[2]);

@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/30 10:42:19 by laugarci         ###   ########.fr        #
+#    Updated: 2023/11/30 12:18:10 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette src/* inc/*
+	norminette inc/* src/*
 
 -include $(DEPS)
 

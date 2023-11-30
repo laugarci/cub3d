@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 19:00:39 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:29:31 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ int	render(t_win *wind)
 		x++;
 	}
 	print_minimap(wind->cub, wind);
+	move(wind);
+	move_cam(wind->player);
 	move_mouse(wind);
 	mlx_put_image_to_window(wind->mlx, wind->mlx_win, wind->image.img, 0, 0);
 	put_player(wind->player, wind);

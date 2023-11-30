@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 12:49:40 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:22:29 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	check_arg(av);
-	init_vars(&cub);
+	init_vars(&cub, &player);
 	open_map(av[1], &cub);
 	parse_file(&cub);
 	check_info(&cub);

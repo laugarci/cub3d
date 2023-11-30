@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:59:43 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 18:29:28 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 20:30:54 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ void	move_cam_right(t_player *player, float olddirx, float oldplanex)
 	player->planey = oldplanex * sin(-TURN) + player->planey * cos(-TURN);
 }
 
-void	move_cam(t_player *player, int mov)
+void	move_cam(t_player *player)
 {
 	float	olddirx;
 	float	oldplanex;
 
 	olddirx = player->dirx;
 	oldplanex = player->planex;
-	if (mov == CAM_LEFT)
+	if (player->cam_left)
 		move_cam_left(player, olddirx, oldplanex);
-	if (mov == CAM_RIGHT)
+	if (player->cam_right)
 		move_cam_right(player, olddirx, oldplanex);
 }

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 12:33:28 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:54:43 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct s_player
 	float	diry;
 	float	planex;
 	float	planey;
+	int		direction;
+	char	*file;
 }	t_player;
 
 typedef struct s_img
@@ -125,6 +127,7 @@ void		move_cam_right(t_player *player, float olddirx,	float oldplanex);
 int			move_mouse(t_win *wind);
 int			movements(int mov, t_win *wind);
 void		move_cam(t_player *player, int mov);
+void		put_player(t_player *player, t_win *wind);
 
 //MINIMAP
 void		print_minimap(t_cub *cub, t_win *wind);

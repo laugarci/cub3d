@@ -68,7 +68,7 @@ The bonus part includes additional features that will be evaluated only if the m
 
 ## Video
 
-[![Video](https://img.youtube.com/vi/akXgDEZarMs/0.jpg)](https://www.youtube.com/watch?v=akXgDEZarMs)
+Click on the image to watch the video:
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=akXgDEZarMs">

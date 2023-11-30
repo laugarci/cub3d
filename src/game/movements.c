@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 14:03:39 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:37:54 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	do_up(t_player *player, t_cub *cub)
 	if (check_correct(cub->map, player->posx, \
 		player->posy + player->diry * SPEED))
 		player->posy += player->diry * SPEED;
-	player->direction = 1;
+	if (player->direction == 1)
+		player->direction = 2;
+	else
+		player->direction = 1;
 }
 
 void	do_left(t_player *player, t_cub *cub)
@@ -31,7 +34,10 @@ void	do_left(t_player *player, t_cub *cub)
 	if (check_correct(cub->map, player->posx, \
 			player->posy + player->dirx * SPEED))
 		player->posy += player->dirx * SPEED;
-	player->direction = 2;
+	if (player->direction == 1)
+		player->direction = 2;
+	else
+		player->direction = 1;
 }
 
 void	do_down(t_player *player, t_cub *cub)
@@ -42,7 +48,10 @@ void	do_down(t_player *player, t_cub *cub)
 	if (check_correct(cub->map, player->posx, \
 		player->posy - player->diry * SPEED))
 		player->posy -= player->diry * SPEED;
-	player->direction = 0;
+	if (player->direction == 1)
+		player->direction = 2;
+	else
+		player->direction = 1;
 }
 
 void	do_right(t_player *player, t_cub *cub)
@@ -53,7 +62,10 @@ void	do_right(t_player *player, t_cub *cub)
 	if (check_correct(cub->map, player->posx, \
 			player->posy - player->dirx * SPEED))
 		player->posy -= player->dirx * SPEED;
-	player->direction = 3;
+	if (player->direction == 1)
+		player->direction = 2;
+	else
+		player->direction = 1;
 }
 
 int	movements(int mov, t_win *wind)

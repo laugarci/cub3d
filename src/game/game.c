@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 14:05:30 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 14:49:56 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	game(t_cub *cub, t_player *player)
 	wind.image.addr = mlx_get_data_addr(wind.image.img, \
 		&(wind.image.bits_per_pixel), &(wind.image.line_len), \
 		&(wind.image.endian));
-	save_textures(&wind);
+	save_images(&wind);
 	mlx_mouse_move(wind.mlx_win, WIDTH / 2, HEIGHT / 2);
 	mlx_hook(wind.mlx_win, 2, 1L << 0, movements, &wind);
 	mlx_hook(wind.mlx_win, 17, 1L << 5, close_window, &wind);

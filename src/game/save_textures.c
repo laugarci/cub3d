@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:00:18 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 10:58:44 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:30:36 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ char	*find_path(t_cub *cub, int i)
 	return (path);
 }
 
-void	apply_colors(t_cub *cub)
+void	init_text_colors(t_cub *cub)
 {
-	if (cub->app_col[0] == 1)
-		cub->colors[0] = 0xFCE5CD;
-	if (cub->app_col[1] == 1)
-		cub->colors[1] = 0xF9CB9C;
-	if (cub->app_col[2] == 1)
-		cub->colors[2] = 0xF6B26B;
-	if (cub->app_col[3] == 1)
-		cub->colors[3] = 0xE69138;
+	cub->colors[0] = 0xFCE5CD;
+	cub->colors[1] = 0xF9CB9C;
+	cub->colors[2] = 0xF6B26B;
+	cub->colors[3] = 0xE69138;
 }
 
 void	save_textures(t_win *wind)
@@ -45,10 +41,9 @@ void	save_textures(t_win *wind)
 	int		i;
 
 	i = 0;
-//	apply_colors(wind->cub)
+	init_text_colors(wind->cub);
 	while (i < 4)
 	{
-		//aqui he posat aquesta linea
 		if (wind->cub->app_col[i] != 1)
 		{
 			text = &wind->texture[i];
@@ -61,7 +56,6 @@ void	save_textures(t_win *wind)
 			if (!text->addr)
 				wind->cub->app_col[i] = 1;
 		}
-			i++;
+		i++;
 	}
-	apply_colors(wind->cub);
 }

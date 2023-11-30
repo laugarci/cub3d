@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   save_textures.c                                    :+:      :+:    :+:   */
+/*   save_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 19:00:18 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 12:30:36 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:05:39 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,24 @@ void	init_text_colors(t_cub *cub)
 	cub->colors[3] = 0xE69138;
 }
 
-void	save_textures(t_win *wind)
+void	save_sprite_char(t_win *wind, t_player *player)
+{
+	int pxl;
+	
+	player->file[0] = mlx_xpm_file_to_image(wind->mlx, \
+		"./sprites/char_N_1.xpm", &pxl, &pxl);
+	player->file[1] = mlx_xpm_file_to_image(wind->mlx, \
+		"./sprites/char_N_2.xpm", &pxl, &pxl);
+}
+
+void	save_images(t_win *wind)
 {
 	t_img	*text;
 	int		i;
 
 	i = 0;
 	init_text_colors(wind->cub);
+	save_sprite_char(wind, wind->player);
 	while (i < 4)
 	{
 		if (wind->cub->app_col[i] != 1)

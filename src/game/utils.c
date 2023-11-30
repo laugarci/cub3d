@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:15:25 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 15:30:55 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:06:50 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_correct(char **map, int x, int y)
 	return (1);
 }
 
-unsigned int	rgb_to_hex(int r, int g, int b)
+int	rgb_to_hex(int r, int g, int b)
 {
 	unsigned int	hexa;
 

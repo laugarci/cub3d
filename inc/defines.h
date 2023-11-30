@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/29 18:37:24 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/11/30 12:34:13 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@
 
 # define MOUSE_MARGIN 200
 
-# define IMAGE 64
+# define IMAGE 128
 
 #endif

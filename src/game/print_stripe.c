@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 20:34:33 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/01 10:48:42 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 		y++;
 	}
 	color = rgb_to_hex(wind->cub->f[0], wind->cub->f[1], wind->cub->f[2]);
-	while (y <= HEIGHT)
+	while (y < HEIGHT)
 		my_mlx_pixel_put(wind, x, y++, color);
 }

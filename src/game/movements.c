@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 20:32:56 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:32:12 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	do_up(t_player *player, t_cub *cub)
 		player->dirx * SPEED, player->posy))
 		player->posx += player->dirx * SPEED;
 	if (check_correct(cub->map, player->posx, \
-		player->posy + player->diry * SPEED))
+		player->posy - WALL_SPACE + player->diry * SPEED))
 		player->posy += player->diry * SPEED;
 	if (player->direction == 1)
 		player->direction = 2;
@@ -28,8 +28,8 @@ void	do_up(t_player *player, t_cub *cub)
 
 void	do_left(t_player *player, t_cub *cub)
 {
-	if (check_correct(cub->map, player->posx - player->diry * SPEED, \
-			player->posy))
+	if (check_correct(cub->map, player->posx + WALL_SPACE - \
+		player->diry * SPEED, player->posy))
 		player->posx -= player->diry * SPEED;
 	if (check_correct(cub->map, player->posx, \
 			player->posy + player->dirx * SPEED))
@@ -46,7 +46,7 @@ void	do_down(t_player *player, t_cub *cub)
 		player->dirx * SPEED, player->posy))
 		player->posx -= player->dirx * SPEED;
 	if (check_correct(cub->map, player->posx, \
-		player->posy - player->diry * SPEED))
+		player->posy + WALL_SPACE - player->diry * SPEED))
 		player->posy -= player->diry * SPEED;
 	if (player->direction == 1)
 		player->direction = 2;
@@ -56,8 +56,8 @@ void	do_down(t_player *player, t_cub *cub)
 
 void	do_right(t_player *player, t_cub *cub)
 {
-	if (check_correct(cub->map, player->posx + player->diry * SPEED, \
-			player->posy))
+	if (check_correct(cub->map, player->posx - WALL_SPACE + \
+		player->diry * SPEED, player->posy))
 		player->posx += player->diry * SPEED;
 	if (check_correct(cub->map, player->posx, \
 			player->posy - player->dirx * SPEED))

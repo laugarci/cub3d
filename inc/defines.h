@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/11/30 16:35:41 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:25:50 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@
 # define MOUSE_MARGIN 200
 
 # define IMAGE 64
+
+# define WALL_SPACE 0.15
 
 #endif

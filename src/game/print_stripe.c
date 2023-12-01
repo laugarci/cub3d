@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/01 10:48:42 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:32:25 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,22 @@ void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 	float	tex_pos;
 	int		tex_y;
 
+	(void)x;
 	y = 0;
+	step = (float)IMAGE / rnd->line_height;
+	tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
 	color = rgb_to_hex(wind->cub->c[0], wind->cub->c[1], wind->cub->c[2]);
 	while (y < rnd->line_start)
 		my_mlx_pixel_put(wind, x, y++, color);
-	step = (float)IMAGE / rnd->line_height;
-	tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
 	while (y < rnd->line_end)
 	{
 		tex_y = (int)tex_pos & (IMAGE - 1);
 		tex_pos = tex_pos + step;
-		color = pix_text(wind, rnd, x_text(wind, rnd), (int)tex_y);
+		color = pix_text(wind, rnd, x_text(wind, rnd), tex_y);
 		my_mlx_pixel_put(wind, x, y, color);
 		y++;
 	}
 	color = rgb_to_hex(wind->cub->f[0], wind->cub->f[1], wind->cub->f[2]);
-	while (y < HEIGHT)
+	while (y <= HEIGHT)
 		my_mlx_pixel_put(wind, x, y++, color);
 }

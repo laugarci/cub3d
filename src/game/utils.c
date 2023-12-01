@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 10:15:25 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 12:06:50 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/01 11:39:58 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	my_mlx_pixel_put(t_win *wind, int x, int y, int color)
 {
-	int	*img;
+	unsigned int	*img;
 
-	img = (int *)wind->image.addr;
+	img = (unsigned int *)wind->image.addr;
 	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 		img[x + WIDTH * y] = color;
 }

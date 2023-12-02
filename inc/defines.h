@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/01 13:45:27 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/02 16:48:53 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define DOWN 1
 # define RIGHT 0
 
+# define ENTER 36
+
 # define MOUSE_LEFT 1
 # define MOUSE_RIGHT 2
 
@@ -40,6 +42,6 @@
 
 # define IMAGE 64
 
-# define WALL_SPACE 0.15
+# define WALL_SPACE 0
 
 #endif

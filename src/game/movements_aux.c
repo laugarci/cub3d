@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:31:30 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 20:32:54 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/02 17:15:16 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	movements(int mov, t_win *wind)
 {
 	if (mov == ESC)
 		close_window(wind);
-	if (mov == CAM_RIGHT)
+	if (mov == CAM_RIGHT && wind->player->cam_left == 0)
 		wind->player->cam_right = 1;
-	if (mov == CAM_LEFT)
+	if (mov == CAM_LEFT && wind->player->cam_right == 0)
 		wind->player->cam_left = 1;
 	if (mov == UP)
 		wind->player->up = 1;

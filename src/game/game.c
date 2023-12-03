@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:33:31 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/02 16:48:59 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:35:23 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	game(t_cub *cub, t_player *player)
 	t_win	wind;
 
 	player->direction = 1;
+	player->speed = SPEED;
 	wind.player = player;
 	wind.cub = cub;
 	wind.image.width = WIDTH;

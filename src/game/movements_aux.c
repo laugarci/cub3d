@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements_aux.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
+/*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:31:30 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/02 17:15:16 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:39:38 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	movements(int mov, t_win *wind)
 		wind->player->right = 1;
 	if (mov == DOWN)
 		wind->player->down = 1;
+	if (mov == TURBO)
+	{
+		if (wind->player->speed == FAST_SPEED)
+			wind->player->speed = SPEED;
+		else
+			wind->player->speed = FAST_SPEED;
+	}
 	return (0);
 }
 

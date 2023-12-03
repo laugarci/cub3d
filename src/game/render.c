@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:39:41 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/03 16:52:42 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/03 18:35:15 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void	wall_height(t_rnd *rnd)
 		rnd->perpwalldist = fabsf(rnd->side_distx - rnd->delta_distx);
 	else
 		rnd->perpwalldist = fabsf(rnd->side_disty - rnd->delta_disty);
-	if (rnd->perpwalldist < 1e-2)
-		rnd->perpwalldist = 1e-2;
+	if (rnd->perpwalldist < 0.03)
+		rnd->perpwalldist = 0.03;
 	rnd->line_height = (int)(HEIGHT / rnd->perpwalldist);
 	rnd->line_start = (HEIGHT / 2) - (rnd->line_height / 2);
 	rnd->line_start = (HEIGHT / 2) - (rnd->line_height / 2);

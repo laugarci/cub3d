@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/03 15:40:09 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/03 19:40:03 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct s_cub
 
 typedef struct s_player
 {
-	int		up; //
-	int		down;//
-	int		left;//
-	int		right;//
+	int		up;
+	int		down;
+	int		left;
+	int		right;
 	int		cam_left;
 	int		cam_right;
 	float	posx;
@@ -62,6 +62,7 @@ typedef struct s_player
 	float	planey;
 	int		direction;
 	char	*file[2];
+	float	speed;
 }	t_player;
 
 typedef struct s_img

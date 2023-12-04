@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:28:48 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 14:41:46 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:30:33 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*copy_path(char *map, int del)
 
 	i = 0;
 	tmp = malloc(sizeof(char) * del + 1);
+	if (!tmp)
+		exit(1);
 	while (i < del)
 	{
 		tmp[i] = map[i];

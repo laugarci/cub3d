@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 13:10:39 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:31:29 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	find_number(char *map, int del)
 
 	i = 0;
 	tmp = malloc(sizeof(char) * del + 1);
+	if (!tmp)
+		exit(-1);
 	while (i < del)
 	{
 		tmp[i] = map[i];

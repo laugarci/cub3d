@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 11:17:56 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:10:39 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	parse_file(t_cub *cub)
 				find_color(&cub->all[i][j + 1], cub->c);
 			if (!ft_strncmp(&cub->all[i][j], "1", 1)
 					&& all_found(cub) && (i == 6))
-				cub->map = copy_map(i, cub);
+				copy_map(i, cub);
 			j++;
 		}
 		i++;

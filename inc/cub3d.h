@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 11:14:52 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:10:15 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void		free_map(t_cub *cub);
 void		check_map(t_cub *cub, t_player *player);
 void		parse_file(t_cub *cub);
 void		find_path_to_img(char *map, char **path);
-char		**copy_map(int init, t_cub *cub);
+void		copy_map(int init, t_cub *cub);
 void		free_all(t_cub *cub);
 void		free_matrix(char **matrix, int len);
 void		invalid_map(t_cub *cub);

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 20:36:00 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:17:56 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,12 @@ void	find_color(char *map, int color[3])
 
 	i = 0;
 	num = 0;
+	check_numbers_are_correct(map);
 	while (map[i] && map[i] != '\n' && num < 3)
 	{
-		if ((map[i] >= '0' && map[i] <= '9') || (map[i] == '-'
-				&& (map[i + 1] >= '0' && map[i + 1] <= '9')))
+		if ((map[i] >= '0' && map[i] <= '9'))
 		{
 			c = 0;
-			if (map[i] == '-')
-				c++;
-			i += c;
 			while (map[i] && map[i] >= '0' && map[i] <= '9')
 			{
 				c++;
@@ -111,9 +108,9 @@ void	parse_file(t_cub *cub)
 		while (cub->all[i][j])
 		{
 			if (cub->all[i][j] == 'F' && !ft_strncmp(&cub->all[i][j], "F ", 2))
-				find_color(&cub->all[i][j], cub->f);
+				find_color(&cub->all[i][j + 1], cub->f);
 			if (cub->all[i][j] == 'C' && !ft_strncmp(&cub->all[i][j], "C ", 2))
-				find_color(&cub->all[i][j], cub->c);
+				find_color(&cub->all[i][j + 1], cub->c);
 			if (!ft_strncmp(&cub->all[i][j], "1", 1)
 					&& all_found(cub) && (i == 6))
 				cub->map = copy_map(i, cub);

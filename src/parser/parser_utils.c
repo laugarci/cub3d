@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/03 19:35:26 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:10:23 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,21 @@ void	free_all(t_cub *cub)
 		free(cub->e);
 	if (cub->map != NULL)
 		free_matrix(cub->map, cub->rows);
+}
+
+void	check_numbers_are_correct(char *number)
+{
+	int	i;
+
+	i = 0;
+	while (number[i])
+	{
+		if (ft_isalpha(number[i]))
+			print_and_exit_errors("Floor and/or sky colors are \
+				missing or invalid.");
+		if (number[i] == '-')
+			print_and_exit_errors("Floor and/or sky colors are \
+				missing or invalid.");
+		i++;
+	}
 }

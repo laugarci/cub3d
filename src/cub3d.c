@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:42:19 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/30 20:22:29 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:40:46 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char **av)
 	check_map(&cub, &player);
 	check_paths(&cub);
 	check_paths_to_img(&cub);
-	count_cols(&cub);
 	game(&cub, &player);
 	free_all(&cub);
 	return (0);

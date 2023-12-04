@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/11/29 15:02:21 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:34:35 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	open_file(char *path)
 	return (fd);
 }
 
-int	count_lines(char *path)
+int	count_lines(char *path, t_cub *cub)
 {
 	char	*line;
 	int		i;
@@ -38,6 +38,8 @@ int	count_lines(char *path)
 	while (42)
 	{
 		line = get_next_line(fd);
+		if (line != NULL && (cub->cols < (int)ft_strlen(line)))
+			cub->cols = (int)ft_strlen(line);
 		if (line == NULL)
 			break ;
 		if (ft_strncmp(line, "\n", 1))
@@ -66,7 +68,7 @@ void	open_map(char *path, t_cub *cub)
 	int		count;
 	char	*line;
 
-	count = count_lines(path);
+	count = count_lines(path, cub);
 	cub->all = malloc(sizeof(char *) * count);
 	if (!cub->all)
 		exit(-1);

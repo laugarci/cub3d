@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 20:31:30 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/03 19:39:38 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:12:30 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	movements(int mov, t_win *wind)
 		wind->player->down = 1;
 	if (mov == TURBO)
 	{
-		if (wind->player->speed == FAST_SPEED)
-			wind->player->speed = SPEED;
-		else
+		if (wind->player->speed < FAST_SPEED)
 			wind->player->speed = FAST_SPEED;
+		else
+			wind->player->speed = SPEED;
 	}
 	return (0);
 }

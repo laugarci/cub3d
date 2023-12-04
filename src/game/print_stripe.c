@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:23:03 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/02 16:39:40 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:51:48 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	print_stripe(t_win *wind, t_rnd *rnd, int x)
 	(void)x;
 	y = 0;
 	step = (float)IMAGE / rnd->line_height;
-	tex_pos = (rnd->line_start - HEIGHT / 2 + rnd->line_height / 2) * step;
+	tex_pos = (rnd->line_height / 2 - HEIGHT / 2 + rnd->line_start) * step;
 	color = rgb_to_hex(wind->cub->c[0], wind->cub->c[1], wind->cub->c[2]);
 	while (y < rnd->line_start)
 		my_mlx_pixel_put(wind, x, y++, color);

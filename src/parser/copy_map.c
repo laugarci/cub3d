@@ -6,12 +6,26 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 15:58:19 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:32:38 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "cub3d.h"
+
+void	count_cols(int i, t_cub *cub)
+{
+	int	cols;
+
+	cols = 0;
+	while (i < cub->rows)
+	{
+		if ((int)ft_strlen(cub->all[i]) > cols)
+			cols = (int)ft_strlen(cub->all[i]);
+		i++;
+	}
+	cub->cols = cols;
+}
 
 void	copy_map_aux(int k, int i, t_cub *cub, char **matrix)
 {

@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:02:22 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/03 19:40:03 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:14:52 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void		check_paths(t_cub *cub);
 void		count_cols(t_cub *cub);
 void		print_and_exit_errors(char *str);
 void		check_paths_to_img(t_cub *cub);
+void		check_numbers_are_correct(char *number);
 
 //MOVEMENTS
 void		find_dir_player(t_cub *cub, t_player *player);

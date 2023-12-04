@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:30:31 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 15:47:14 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:53:10 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	copy_map_aux(int k, int i, t_cub *cub, char **matrix)
 {
+	if (matrix[i][k - 1] == '0')
+		print_and_exit_errors("Invalid map");
 	if (k < cub->cols)
 	{
 		while (k < (cub->cols - 1))

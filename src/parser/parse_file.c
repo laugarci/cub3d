@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:36:28 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 16:32:20 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:13:40 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	find_color(char *map, int color[3])
 	i = 0;
 	num = 0;
 	check_numbers_are_correct(map);
-	while (map[i] && map[i] != '\n' && num < 3)
+	while (i < (int)ft_strlen(map))
 	{
 		if ((map[i] >= '0' && map[i] <= '9'))
 		{
@@ -107,7 +107,7 @@ void	parse_file(t_cub *cub)
 	while (i < cub->total_len)
 	{
 		j = 0;
-		while (cub->all[i][j])
+		while (j < (int)ft_strlen(cub->all[i]))
 		{
 			if (cub->all[i][j] == 'F' && !ft_strncmp(&cub->all[i][j], "F ", 2))
 				find_color(&cub->all[i][j + 1], cub->f);

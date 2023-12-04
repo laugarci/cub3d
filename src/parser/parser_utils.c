@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:56:13 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 12:10:23 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:19:48 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@ void	print_and_exit_errors(char *str)
 {
 	printf("Error: %s\n", str);
 	exit(1);
+}
+
+void	init_vars_aux(t_player *player)
+{
+	player->up = 0;
+	player->down = 0;
+	player->left = 0;
+	player->right = 0;
+	player->cam_left = 0;
+	player->cam_right = 0;
 }
 
 void	init_vars(t_cub *cub, t_player *player)
@@ -39,48 +49,8 @@ void	init_vars(t_cub *cub, t_player *player)
 	cub->app_col[1] = 0;
 	cub->app_col[2] = 0;
 	cub->app_col[3] = 0;
-	player->up = 0;
-	player->down = 0;
-	player->left = 0;
-	player->right = 0;
-	player->cam_left = 0;
-	player->cam_right = 0;
-}
-
-void	free_matrix(char **matrix, int len)
-{
-	int	i;
-
-	i = 0;
-	if (matrix != NULL)
-	{
-		while (i < len)
-		{
-			free(matrix[i]);
-			i++;
-		}
-		free(matrix);
-		matrix = NULL;
-	}
-}
-
-void	free_all(t_cub *cub)
-{
-	int	i;
-
-	i = 0;
-	if (cub->all != NULL)
-		free_matrix(cub->all, cub->total_len);
-	if (cub->n != NULL)
-		free(cub->n);
-	if (cub->s != NULL)
-		free(cub->s);
-	if (cub->w != NULL)
-		free(cub->w);
-	if (cub->e != NULL)
-		free(cub->e);
-	if (cub->map != NULL)
-		free_matrix(cub->map, cub->rows);
+	cub->total_len = 0;
+	init_vars_aux(player);
 }
 
 void	check_numbers_are_correct(char *number)

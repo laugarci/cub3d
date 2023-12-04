@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:34:16 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 16:28:10 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:22:22 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,23 @@ int	count_lines(char *path)
 	return (i);
 }
 
-void	copy_line(char *line, char ***map, int row)
+void	copy_line(char *line, char **map, int row)
 {
-	int	len;
+	int	i;
 
-	len = ft_strlen(line);
-	(*map)[row] = malloc(sizeof(char) * len + 1);
-	if (!(*map)[row])
+	i = 0;
+	while (line[i] && line[i] != '\n')
+		i++;
+	map[row] = malloc(sizeof(char) * i + 1);
+	if (!map[row])
 		exit(-1);
-	ft_strlcpy((*map)[row], line, len);
+	i = 0;
+	while (line[i] != '\n' && line[i])
+	{
+		map[row][i] = line[i];
+		i++;
+	}
+	map[row][i] = '\0';
 }
 
 void	open_map(char *path, t_cub *cub)
@@ -78,7 +86,7 @@ void	open_map(char *path, t_cub *cub)
 			free(line);
 		else
 		{
-			copy_line(line, &(cub->all), cub->total_len);
+			copy_line(line, cub->all, cub->total_len);
 			cub->total_len++;
 			free(line);
 		}

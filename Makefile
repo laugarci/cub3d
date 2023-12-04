@@ -6,7 +6,7 @@
 #    By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 14:18:02 by laugarci          #+#    #+#              #
-#    Updated: 2023/11/30 20:31:44 by laugarci         ###   ########.fr        #
+#    Updated: 2023/12/04 20:22:09 by laugarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRC_FILES = cub3d.c \
 			game/mouse_movement.c \
 			parser/open_paths.c \
 			game/sprite.c \
+			parser/free_all.c
 
 SRC_FILES_GNL = get_next_line.c \
 				get_next_line_utils.c
@@ -59,7 +60,7 @@ MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 LIBFT = libft/libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -MMD
+CFLAGS = -Wall -Wextra -Werror -MMD #-fsanitize=address
 RM = rm -f
 
 INCLUDE = -I libft/ -I get_next_line/ -I inc/

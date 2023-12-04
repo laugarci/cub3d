@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:56:38 by julolle-          #+#    #+#             */
-/*   Updated: 2023/12/04 12:12:35 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:49:30 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define MOUSE_RIGHT 2
 
 # define SPEED 0.05
-# define FAST_SPEED 0.3
+# define FAST_SPEED 0.1
 # define TURN 0.05
 
 # define MOUSE_MARGIN 200

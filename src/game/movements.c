@@ -6,7 +6,7 @@
 /*   By: julolle- <julolle-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 14:23:00 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/04 15:54:50 by julolle-         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:49:45 by julolle-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	do_up(t_player *player, t_cub *cub)
 	if (player->speed < 0.3)
 		dis = 0.1;
 	else
-		dis = 0.32;
+		dis = 0.12;
 	if (check_correct(cub->map, player->posx + \
 		player->dirx * dis, player->posy))
 		player->posx += player->dirx * player->speed;
@@ -39,7 +39,7 @@ void	do_right(t_player *player, t_cub *cub)
 	if (player->speed < 0.3)
 		dis = 0.1;
 	else
-		dis = 0.32;
+		dis = 0.12;
 	if (check_correct(cub->map, player->posx - \
 		player->diry * dis, player->posy))
 		player->posx -= player->diry * player->speed;
@@ -59,7 +59,7 @@ void	do_down(t_player *player, t_cub *cub)
 	if (player->speed < 0.3)
 		dis = 0.1;
 	else
-		dis = 0.32;
+		dis = 0.12;
 	if (check_correct(cub->map, player->posx - \
 		player->dirx * dis, player->posy))
 		player->posx -= player->dirx * player->speed;
@@ -79,7 +79,7 @@ void	do_left(t_player *player, t_cub *cub)
 	if (player->speed < 0.3)
 		dis = 0.1;
 	else
-		dis = 0.32;
+		dis = 0.12;
 	if (check_correct(cub->map, player->posx + \
 		player->diry * dis, player->posy))
 		player->posx += player->diry * player->speed;
